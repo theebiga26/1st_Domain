@@ -1,0 +1,77 @@
+/* BackgroundAnimations.css */
+
+@keyframes pulseGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg-animate-gradient-light {
+  background: linear-gradient(120deg, #F8FAFC, #F1F5F9, #F8FAFC);
+  background-size: 200% 200%;
+  animation: pulseGradient 15s ease infinite;
+}
+
+.bg-animate-gradient-dark {
+  background: linear-gradient(120deg, #0F172A, #0B1120, #0F172A);
+  background-size: 200% 200%;
+  animation: pulseGradient 15s ease infinite;
+}
+
+.bg-animate-gradient-indigo {
+  background: linear-gradient(120deg, #EEF2FF, #E0E7FF, #EEF2FF);
+  background-size: 200% 200%;
+  animation: pulseGradient 15s ease infinite;
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+.bg-animate-grid {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 20s linear infinite;
+}
+
+.bg-animate-grid-dark {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes pulseBlob {
+  0% { transform: scale(1) translate(0px, 0px); opacity: 0.3; }
+  33% { transform: scale(1.1) translate(30px, -50px); opacity: 0.5; }
+  66% { transform: scale(0.9) translate(-20px, 20px); opacity: 0.4; }
+  100% { transform: scale(1) translate(0px, 0px); opacity: 0.3; }
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-blob-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(56, 189, 248, 0.15); /* Sky blue */
+  top: -100px;
+  left: -100px;
+  animation: pulseBlob 20s infinite alternate;
+}
+
+.bg-blob-2 {
+  width: 500px;
+  height: 500px;
+  background: rgba(30, 58, 138, 0.15); /* Deep blue */
+  bottom: -150px;
+  right: -100px;
+  animation: pulseBlob 25s infinite alternate-reverse;
+}

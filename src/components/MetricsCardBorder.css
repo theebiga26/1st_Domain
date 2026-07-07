@@ -1,0 +1,12 @@
+/* MetricsCardBorder.css */
+/* This file provides optional extra styling for the metric card borders.
+   Currently the spinning border gradient is defined inline in the JSX.
+   You can add additional rules here if you wish, e.g., a subtle box‑shadow
+   or fallback border for browsers that don’t support conic‑gradient. */
+
+.metric-card-border {
+  /* fallback solid border – will be hidden by the animated gradient */
+  border: 2px solid #0F172A;
+  border-radius: 0.75rem; /* matches rounded-[26px] */
+  overflow: hidden;
+}

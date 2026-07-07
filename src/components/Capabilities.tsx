@@ -1,0 +1,288 @@
+import { useState, useRef, useEffect, ReactNode } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Layers, Zap, Cpu, ShieldAlert, CpuIcon, Cloud } from 'lucide-react';
+
+interface Capability {
+  icon: ReactNode;
+  title: string;
+  description: string;
+  badge?: string;
+  image: string;
+}
+
+const list: Capability[] = [
+  {
+    icon: <Layers className="w-6 h-6" />,
+    title: 'Decentralized GPU Pooling',
+    description: 'Aggregate massive, multi-region GPU clusters (NVIDIA H100, H200, B200) into a single unified virtual supercomputer with zero layout overhead.',
+    badge: 'High Availability',
+    image: '/capabilities/cap_gpu_pooling_1783150056001.png',
+  },
+  {
+    icon: <Zap className="w-6 h-6" />,
+    title: 'Adaptive Priority Scheduling',
+    description: 'Our proprietary micro-scheduler allocates computational cycles dynamically based on training loss curves, reducing idle run times by up to 34%.',
+    badge: 'Live Auto-Scheduler',
+    image: '/capabilities/cap_scheduler_1783150070635.png',
+  },
+  {
+    icon: <Cpu className="w-6 h-6" />,
+    title: 'Fractional Virtual GPU Split',
+    description: 'Sliver individual physical GPUs into dynamic logical partitions, providing isolated, microsecond-accurate slices to multiple container tasks.',
+    image: '/capabilities/cap_vgpu_1783150084572.png',
+  },
+  {
+    icon: <ShieldAlert className="w-6 h-6" />,
+    title: 'Zero-Downtime Weight Hot Swap',
+    description: 'Seamlessly shift distributed model states across nodes in the event of hardware deterioration, ensuring uninterrupted epoch generation.',
+    badge: 'Fail-Safe',
+    image: '/capabilities/cap_hotswap_1783150102370.png',
+  },
+  {
+    icon: <Cloud className="w-6 h-6" />,
+    title: 'Native Multi-Cloud Connect',
+    description: 'Connect existing AWS, Azure, Google Cloud pipelines with premium high-bandwidth fiber backbones directly into bare-metal cluster instances.',
+    image: '/capabilities/cap_multicloud_1783150116235.png',
+  },
+  {
+    icon: <CpuIcon className="w-6 h-6" />,
+    title: 'Intelligent Warm Pool Buffering',
+    description: 'Maintain low-cost, lightning-fast pre-warmed container environments to execute training epochs instantaneously upon resource allocation.',
+    image: '/capabilities/cap_warmpool_1783150223988.png',
+  },
+];
+
+export default function Capabilities() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isManualScroll, setIsManualScroll] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Sync scroll position when activeIndex changes via left-side click
+  const handleDotClick = (idx: number) => {
+    setActiveIndex(idx);
+    setIsManualScroll(false);
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current;
+      const child = container.children[idx] as HTMLElement;
+      if (child) {
+        // Calculate offset to account for left padding if any
+        container.scrollTo({
+          left: child.offsetLeft - container.offsetLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
+  // Auto-play effect
+  useEffect(() => {
+    if (isHovered) return;
+
+    const intervalId = setInterval(() => {
+      setActiveIndex((current) => {
+        const nextIdx = (current + 1) % list.length;
+        // Sync the scroll container
+        if (scrollContainerRef.current) {
+          const container = scrollContainerRef.current;
+          const child = container.children[nextIdx] as HTMLElement;
+          if (child) {
+            container.scrollTo({
+              left: child.offsetLeft - container.offsetLeft,
+              behavior: 'smooth'
+            });
+          }
+        }
+        return nextIdx;
+      });
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(intervalId);
+  }, [isHovered]);
+
+  // Sync activeIndex when scrolling manually
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let scrollTimeout: number;
+
+    const handleScroll = () => {
+      // If we are scrolling via button click, ignore scroll events for updating active index
+      if (!isManualScroll) {
+        setIsManualScroll(true);
+      }
+
+      const scrollLeft = container.scrollLeft;
+      let closestIdx = 0;
+      let minDistance = Infinity;
+      
+      Array.from(container.children).forEach((child, idx) => {
+        const childLeft = (child as HTMLElement).offsetLeft - container.offsetLeft;
+        const distance = Math.abs(childLeft - scrollLeft);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIdx = idx;
+        }
+      });
+      
+      if (closestIdx !== activeIndex) {
+        setActiveIndex(closestIdx);
+      }
+
+      // Reset manual scroll flag after scrolling stops
+      window.clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        setIsManualScroll(false);
+      }, 150);
+    };
+
+    container.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+      window.clearTimeout(scrollTimeout);
+    };
+  }, [activeIndex, isManualScroll]);
+
+  return (
+    <section 
+      id="capabilities" 
+      className="py-8 sm:py-10 bg-[#0B1120] bg-animate-grid-dark relative overflow-hidden"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+
+        {/* Main Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-6 lg:mb-8">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/10 mb-4 backdrop-blur-sm"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[#38BDF8]" />
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-300">
+              Core Capabilities
+            </span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight"
+          >
+            The Ultimate Infrastructure <br />for Large-Scale AI
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 text-slate-400 text-lg sm:text-xl"
+          >
+            Say goodbye to complex virtualization overhead. VertexGrid provides direct, secure, and fully orchestrated bare-metal GPU clusters.
+          </motion.p>
+        </div>
+
+        {/* Interactive Split Layout */}
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 mt-8">
+          
+          {/* LEFT SIDE: Timeline & Content */}
+          <div className="w-full lg:w-[45%] flex gap-6 sm:gap-10 h-auto lg:h-[360px]">
+            {/* Timeline */}
+            <div className="flex flex-col items-center relative py-2 justify-between w-8 shrink-0">
+              {/* Vertical Line */}
+              <div className="absolute top-4 bottom-4 w-px bg-white/20 left-1/2 -translate-x-1/2 z-0"></div>
+              
+              {list.map((_, idx) => (
+                <button 
+                  key={idx}
+                  onClick={() => handleDotClick(idx)}
+                  className="relative z-10 w-8 h-8 flex items-center justify-center group"
+                  aria-label={`Go to slide ${idx + 1}`}
+                >
+                  {activeIndex === idx ? (
+                    <motion.div 
+                      layoutId="activeDot"
+                      className="w-8 h-8 rounded-full bg-white text-[#0F172A] flex items-center justify-center text-sm font-bold shadow-md"
+                    >
+                      {idx + 1}
+                    </motion.div>
+                  ) : (
+                    <div className="w-2.5 h-2.5 rounded-full bg-white/30 group-hover:bg-white/60 transition-colors"></div>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Content Display */}
+            <div className="flex-1 flex flex-col justify-center py-4">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  <h3 className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-white mb-6 tracking-tight leading-[1.1]">
+                    {list[activeIndex].title}
+                  </h3>
+                  <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-md">
+                    {list[activeIndex].description}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+
+          {/* RIGHT SIDE: Slider */}
+          <div className="w-full lg:w-[55%] relative">
+            <div 
+              ref={scrollContainerRef}
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 pt-4 -mx-4 px-4 sm:mx-0 sm:px-0"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {list.map((item, idx) => (
+                <div 
+                  key={idx}
+                  onClick={() => handleDotClick(idx)}
+                  className="snap-center relative h-[280px] sm:h-[360px] w-[85%] sm:w-[400px] shrink-0 cursor-pointer overflow-hidden rounded-[2rem] bg-slate-800 shadow-2xl transition-transform duration-500"
+                  style={{
+                    transform: activeIndex === idx ? 'scale(1)' : 'scale(0.95)',
+                  }}
+                >
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className={`w-full h-full object-cover transition-all duration-700 ${activeIndex === idx ? 'opacity-100' : 'opacity-60 hover:opacity-80'}`}
+                  />
+                  {/* Dark gradient overlay for better contrast if needed */}
+                  <div className={`absolute inset-0 bg-gradient-to-b from-transparent to-black/20 transition-opacity duration-500 pointer-events-none ${activeIndex === idx ? 'opacity-0' : 'opacity-100'}`} />
+                </div>
+              ))}
+              
+              {/* Spacer to allow the last item to snap to the left edge if needed, though snap-center handles it nicely */}
+              <div className="shrink-0 w-[5%] sm:w-[20px]" aria-hidden="true"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* Global styles to hide scrollbar specifically for this component if inline styles aren't enough */}
+      <style>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
+    </section>
+  );
+}
+

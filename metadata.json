@@ -1,0 +1,6 @@
+{
+  "name": "VertexGrid",
+  "description": "VertexGrid is a high-performance enterprise AI compute infrastructure platform, providing decentralized and high-availability GPU orchestration, distributed model training, and infrastructure intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

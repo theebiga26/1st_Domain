@@ -309,7 +309,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full pt-10">
           
           {/* Left Column - Text Content */}
-          <div className="flex flex-col items-start text-left relative z-30 lg:pl-10 xl:pl-16">
+          <div className="flex flex-col items-start text-left relative z-30 px-6 sm:px-10 lg:px-0 lg:pl-10 xl:pl-16">
             
             {/* Tagline */}
             <motion.div

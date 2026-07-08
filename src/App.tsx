@@ -9,6 +9,7 @@
  */
 
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import PartnerBanner from './components/PartnerBanner';
@@ -31,13 +32,11 @@ import CookieBanner, { type CookieConsent } from './components/CookieBanner';
 import TawkChat from './components/TawkChat';
 import './components/BackgroundAnimations.css';
 
-export default function App() {
-  const [consent, setConsent] = useState<CookieConsent | null>(null);
+import Terms from './pages/Terms';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Cookies from './pages/Cookies';
 
-  const handleConsent = (c: CookieConsent) => {
-    setConsent(c);
-  };
-
+function Home() {
   return (
     <div className="relative min-h-screen bg-white text-brand-dark-navy antialiased overflow-x-hidden selection:bg-blue-600 selection:text-white">
       {/* Sticky Header Nav */}
@@ -77,13 +76,32 @@ export default function App() {
 
       {/* Section 13: Footer */}
       <Footer />
+    </div>
+  );
+}
+
+export default function App() {
+  const [consent, setConsent] = useState<CookieConsent | null>(null);
+
+  const handleConsent = (c: CookieConsent) => {
+    setConsent(c);
+  };
+
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/cookies" element={<Cookies />} />
+      </Routes>
 
       {/* Cookie Consent Banner */}
       <CookieBanner onConsent={handleConsent} />
 
       {/* Tawk.to Live Chat — only loads after cookie consent */}
       <TawkChat chatEnabled={consent?.chat === true} />
-    </div>
+    </>
   );
 }
 

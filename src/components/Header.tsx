@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cpu, ChevronDown, Menu, X, ArrowRight, ShieldCheck, Activity } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logoUrl from '../assets/logos/logo2.svg';
 
 export default function Header() {
@@ -28,45 +29,47 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#hero', sections: ['#hero'] },
-    { name: 'Features', href: '#capabilities', sections: ['#capabilities', '#about'] },
-    { name: 'Platform', href: '#metrics', sections: ['#metrics', '#use-cases'] },
-    { name: 'How It Works', href: '#how-it-works', sections: ['#how-it-works'] },
-    { name: 'Pricing', href: '#pricing', sections: ['#pricing'] },
+    { name: 'Home', href: '/#hero', sections: ['#hero'] },
+    { name: 'Features', href: '/#capabilities', sections: ['#capabilities', '#about'] },
+    { name: 'Platform', href: '/#metrics', sections: ['#metrics', '#use-cases'] },
+    { name: 'How It Works', href: '/#how-it-works', sections: ['#how-it-works'] },
+    { name: 'Pricing', href: '/#pricing', sections: ['#pricing'] },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, isMobile: boolean = false) => {
-    e.preventDefault();
-    if (isMobile) setMobileMenuOpen(false);
-    const targetId = href.substring(1);
-    const el = document.getElementById(targetId);
-    if (el) {
-      const offset = 90; // offset for fixed header
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = el.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: 'smooth'
-      });
+    if (window.location.pathname === '/' && href.startsWith('/#')) {
+      e.preventDefault();
+      if (isMobile) setMobileMenuOpen(false);
+      const targetId = href.substring(2);
+      const el = document.getElementById(targetId);
+      if (el) {
+        const offset = 90; // offset for fixed header
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = el.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        window.scrollTo({
+          top: elementPosition - offset,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
     return (
     <header
       id="vertexgrid-header"
-      className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-7xl rounded-full bg-white shadow-sm border border-slate-200 ${
-        isScrolled ? 'top-4 shadow-md' : 'top-6'
+      className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[92%] sm:w-[95%] max-w-7xl rounded-2xl md:rounded-full bg-white shadow-sm border border-slate-200 ${
+        isScrolled ? 'top-2 sm:top-4 shadow-md' : 'top-4 sm:top-6'
       }`}
     >
-      <div className="px-5 sm:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      <div className="px-3 sm:px-5 md:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
           
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <a href="#" className="flex items-center gap-2.5 group">
-              <img src={logoUrl} alt="VertexGrid" className="w-48 h-auto transition-transform duration-300 group-hover:scale-105" />
-            </a>
+            <Link to="/" className="flex items-center gap-2.5 group">
+              <img src={logoUrl} alt="VertexGrid" className="w-32 sm:w-40 md:w-48 h-auto transition-transform duration-300 group-hover:scale-105" />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -117,35 +120,22 @@ export default function Header() {
             className="md:hidden bg-white border-b border-slate-200 overflow-hidden shadow-lg"
           >
             <div className="px-4 pt-2 pb-6 space-y-2">
-              <div className="flex items-center gap-2 px-3 py-2 border-b border-slate-100 mb-2">
-                <div className="h-1.5 w-1.5 rounded-full bg-brand-success animate-pulse"></div>
-                <span className="text-xs font-mono text-slate-500 uppercase tracking-wide">
-                  Global Grid capacity: 99.98%
-                </span>
+              
+              <div className="flex flex-col gap-1 px-3">
+                {navItems.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      onClick={(e) => handleNavClick(e, item.href, true)}
+                      className={`block py-2 text-[15px] font-medium text-slate-600 hover:text-brand-primary-blue transition-colors ${item.sections?.includes(activeSection) ? 'text-brand-primary-blue' : ''}`}
+                    >
+                      {item.name}
+                    </a>
+                ))}
               </div>
               
-              {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleNavClick(e, item.href, true)}
-                    className={`nav-link text-slate-600 hover:text-brand-primary-blue ${item.sections?.includes(activeSection) ? 'nav-active' : ''}`}
-                  >
-                    {item.name}
-                  </a>
-              ))}
-              
               <div className="pt-4 flex flex-col gap-2.5 border-t border-slate-100 mt-4">
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    const el = document.getElementById('cta');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="w-full text-center py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-100 rounded-xl transition-all"
-                >
-                  Sign In
-                </button>
+              
                 <a
                   href="#cta"
                   onClick={() => setMobileMenuOpen(false)}

@@ -34,7 +34,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 sm:py-32 bg-slate-50 bg-animate-gradient-light relative border-t border-slate-200">
+    <section id="faq" className="py-24 sm:py-32 bg-white relative border-t border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -45,7 +45,7 @@ export default function FAQ() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 mb-4 shadow-sm"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#0ea5e9]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#0F172A]" />
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#1E3A8A]">
               Information
             </span>

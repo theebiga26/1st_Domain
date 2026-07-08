@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Facebook, Linkedin, Mail, Phone, MapPin, Printer, Twitter, Youtube } from 'lucide-react';
 import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 
 declare global {
@@ -146,165 +146,183 @@ export default function ContactUs() {
   };
 
   return (
-    <section id="contact" className="py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#0F172A] rounded-[2.5rem] p-8 sm:p-12 lg:p-16 text-white shadow-2xl border border-white/10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+    <section id="contact" className="py-24 bg-slate-100 flex items-center justify-center min-h-screen relative">
+      <div className="max-w-6xl w-full px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mx-auto max-w-3xl mb-12">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200 border border-slate-300 mb-4 mx-auto">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#0F172A]" />
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0F172A]">
+              Contact Us
+            </span>
+          </div>
+          <h2 className="mt-6 text-4xl sm:text-5xl font-bold tracking-tight text-[#0F172A]">Get in Touch</h2>
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+            Need help architecting your next GPU cluster or want a tailored enterprise deployment plan? Reach out and our VertexGrid specialists will connect you with the right team immediately.
+          </p>
+        </div>
+        <div className="bg-white rounded-[2rem] rounded-tl-xl rounded-br-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col md:flex-row ml-0 md:ml-16 relative">
           
-          {/* Left Column */}
-          <div>
-            <h2 className="text-4xl sm:text-5xl font-bold font-display mb-6 tracking-tight">
-              Get in Touch
-            </h2>
-            <p className="text-slate-400 text-lg mb-8 leading-relaxed max-w-md">
-              Power Enterprise AI at Compute Scale. Deploy your fine-tuning workflows, establish isolated container endpoints, and slash cloud spend. Get customized priority access within minutes.
-            </p>
-
-            {/* Checkmarks from CTA */}
-            <div className="flex flex-col gap-3 text-sm text-slate-300 font-mono mb-12">
-              <span className="flex items-center gap-3">
-                <span className="text-[#3b82f6] text-lg leading-none">✔</span> SOC2 Type II Certified
-              </span>
-              <span className="flex items-center gap-3">
-                <span className="text-[#3b82f6] text-lg leading-none">✔</span> GDPR & HIPAA Compliant Data Channels
-              </span>
-              <span className="flex items-center gap-3">
-                <span className="text-[#3b82f6] text-lg leading-none">✔</span> Guaranteed 99.99% Cluster SLA
-              </span>
+          {/* Left Overlay Card */}
+          <div className="bg-[#0F172A] text-white p-8 md:p-12 flex flex-col rounded-2xl shadow-2xl md:absolute md:top-6 md:bottom-6 md:-left-16 md:w-[400px] z-10 w-full">
+            <div>
+              <h3 className="text-xl font-semibold text-slate-200 mb-4">Contact Details</h3>
+              <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
+                Reach out for sales, support, or to discuss your enterprise GPU strategy with our team.
+              </p>
             </div>
-
-            {/* Contact Info (like image) */}
-            <div className="space-y-8">
-              <div className="flex items-center gap-5">
-                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <Mail className="w-5 h-5 text-slate-300" />
-                </div>
-                <div>
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Email Us</div>
-                  <div className="font-semibold text-white text-sm">connect@vertexgrid.one</div>
-                </div>
+            
+            <div className="my-auto pt-10 pb-4">
+              <div className="space-y-8">
+              <div className="flex items-start gap-4">
+                <MapPin className="w-5 h-5 shrink-0 mt-0.5 text-slate-400" />
+                <p className="text-sm font-medium text-slate-200">32, Avenue ve Newyork<br/>321994 Newyork</p>
               </div>
               
-              <div className="flex items-center gap-5">
-                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-slate-300" />
-                </div>
-                <div>
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Call Us</div>
-                  <div className="font-semibold text-white text-sm">+1 (800) 555-0199</div>
-                </div>
+              <div className="flex items-center gap-4">
+                <Mail className="w-5 h-5 shrink-0 text-slate-400" />
+                <p className="text-sm font-medium text-slate-200">hello@loremipsum.com</p>
+              </div>
+              
+              <div className="flex items-center gap-4">
+                <Phone className="w-5 h-5 shrink-0 text-slate-400" />
+                <p className="text-sm font-medium text-slate-200">+3356 1589 2105</p>
               </div>
 
-              <div className="flex items-center gap-5">
-                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                  <MapPin className="w-5 h-5 text-slate-300" />
-                </div>
-                <div>
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1.5">Office</div>
-                  <div className="font-semibold text-white text-sm">San Francisco, CA 94105, USA</div>
-                </div>
+              <div className="flex items-center gap-4">
+                <Printer className="w-5 h-5 shrink-0 text-slate-400" />
+                <p className="text-sm font-medium text-slate-200">+3356 1589 2100</p>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Follow Us</p>
+              <div className="flex items-center gap-3 flex-wrap">
+                
+                {/* LinkedIn */}
+                <a href="#" aria-label="LinkedIn" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#0A66C2]/30 hover:border-[#0A66C2]/50 transition-all">
+                  <Linkedin className="w-4 h-4" />
+                </a>
+
+                {/* Facebook */}
+                <a href="#" aria-label="Facebook" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#1877F2]/30 hover:border-[#1877F2]/50 transition-all">
+                  <Facebook className="w-4 h-4" />
+                </a>
+
+                {/* YouTube */}
+                <a href="#" aria-label="YouTube" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#FF0000]/20 hover:border-[#FF0000]/40 transition-all">
+                  <Youtube className="w-4 h-4" />
+                </a>
+
+                {/* Twitter / X */}
+                <a href="#" aria-label="Twitter" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all">
+                  <Twitter className="w-4 h-4" />
+                </a>
+
+                {/* Pinterest — inline SVG */}
+                <a href="#" aria-label="Pinterest" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#E60023]/20 hover:border-[#E60023]/40 transition-all">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/>
+                  </svg>
+                </a>
+
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Right Column - Form */}
-          <div className="lg:pl-8">
-            <form onSubmit={handleSubmit} className="space-y-10 mt-2">
+          {/* Right Form Area */}
+          <div className="p-8 md:py-16 md:pr-16 md:pl-[380px] w-full flex flex-col justify-center bg-white rounded-2xl min-h-[550px] relative z-0">
+
+            <form onSubmit={handleSubmit} className="space-y-6 flex flex-col">
               {status === 'success' && (
-                <div className="rounded-3xl border border-emerald-500/20 bg-emerald-500/10 px-4 py-3 text-emerald-200 text-sm">
+                <div className="rounded-lg border border-emerald-500/20 bg-emerald-50 px-4 py-3 text-emerald-700 text-sm">
                   Thanks! Your message has been sent successfully.
                 </div>
               )}
               {status === 'error' && (
-                <div className="rounded-3xl border border-rose-500/20 bg-rose-500/10 px-4 py-3 text-rose-200 text-sm">
+                <div className="rounded-lg border border-rose-500/20 bg-rose-50 px-4 py-3 text-rose-700 text-sm">
                   {errorMessage || 'Something went wrong. Please try again later.'}
                 </div>
               )}
               {!isFormspreeConfigured && (
-                <div className="rounded-3xl border border-amber-500/20 bg-amber-500/10 px-4 py-3 text-amber-100 text-sm">
+                <div className="rounded-lg border border-amber-500/20 bg-amber-50 px-4 py-3 text-amber-700 text-sm">
                   Contact form is not configured. Add VITE_FORMSPREE_ENDPOINT or VITE_FORMSPREE_FORM_ID to your .env file.
                 </div>
               )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Full Name</label>
-                  <input
-                    name="name"
-                    value={fields.name}
-                    onChange={handleFieldChange}
-                    type="text"
-                    placeholder="Enter your name"
-                    className="w-full bg-transparent border-b border-white/10 pb-3 text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-blue-500 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Corporate Enterprise Email</label>
-                  <input
-                    name="email"
-                    value={fields.email}
-                    onChange={handleFieldChange}
-                    type="email"
-                    placeholder="name@company.com"
-                    className="w-full bg-transparent border-b border-white/10 pb-3 text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-blue-500 transition-colors"
-                  />
-                </div>
+              <div>
+                <label className="block text-xs font-bold text-black uppercase tracking-wider mb-2 ml-1">Full Name</label>
+                <input
+                  name="name"
+                  value={fields.name}
+                  onChange={handleFieldChange}
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full bg-[#0F172A] border border-white/10 text-white rounded-xl px-5 py-4 text-sm outline-none focus:ring-1 focus:ring-white/20 transition-all placeholder:text-slate-400"
+                />
               </div>
               
               <div>
-                <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Company</label>
+                <label className="block text-xs font-bold text-black uppercase tracking-wider mb-2 ml-1">Email Address</label>
+                <input
+                  name="email"
+                  value={fields.email}
+                  onChange={handleFieldChange}
+                  type="email"
+                  placeholder="Your Email"
+                  className="w-full bg-[#0F172A] border border-white/10 text-white rounded-xl px-5 py-4 text-sm outline-none focus:ring-1 focus:ring-white/20 transition-all placeholder:text-slate-400"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-black uppercase tracking-wider mb-2 ml-1">Company</label>
                 <input
                   name="company"
                   value={fields.company}
                   onChange={handleFieldChange}
                   type="text"
-                  placeholder="Your enterprise name"
-                  className="w-full bg-transparent border-b border-white/10 pb-3 text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                  placeholder="Your Company"
+                  className="w-full bg-[#0F172A] border border-white/10 text-white rounded-xl px-5 py-4 text-sm outline-none focus:ring-1 focus:ring-white/20 transition-all placeholder:text-slate-400"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Message</label>
+                <label className="block text-xs font-bold text-black uppercase tracking-wider mb-2 ml-1">Message</label>
                 <textarea
                   name="message"
                   value={fields.message}
                   onChange={handleFieldChange}
-                  rows={3}
-                  placeholder="How can we help you?"
-                  className="w-full bg-transparent border-b border-white/10 pb-3 text-white placeholder:text-slate-600 text-sm focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                  rows={4}
+                  placeholder="Typing your message here....."
+                  className="w-full bg-[#0F172A] border border-white/10 text-white rounded-xl px-5 py-4 text-sm outline-none focus:ring-1 focus:ring-white/20 transition-all resize-none placeholder:text-slate-400"
                 />
               </div>
 
-              {/* Human Verification Mock */}
-              <div>
-                <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Human Verification</label>
-                <div className="space-y-3">
-                  <div ref={turnstileContainerRef} className="min-h-[88px] rounded-3xl border border-white/10 bg-slate-950/40 p-4" />
-                  {turnstileError && (
-                    <div className="text-rose-300 text-sm">{turnstileError}</div>
-                  )}
-                  {!isTurnstileConfigured && (
-                    <div className="text-amber-200 text-sm">
-                      Cloudflare Turnstile is not configured. Add VITE_CLOUDFLARE_TURNSTILE_SITE_KEY to your .env file.
-                    </div>
-                  )}
-                </div>
+              {/* Turnstile */}
+              <div className="space-y-3">
+                <div ref={turnstileContainerRef} className="min-h-[88px]" />
+                {turnstileError && (
+                  <div className="text-rose-600 text-sm">{turnstileError}</div>
+                )}
+                {!isTurnstileConfigured && (
+                  <div className="text-amber-600 text-sm">
+                    Cloudflare Turnstile is not configured. Add VITE_CLOUDFLARE_TURNSTILE_SITE_KEY to your .env file.
+                  </div>
+                )}
               </div>
 
-              <div className="pt-6">
+              <div className="pt-2">
                 <button
                   type="submit"
                   disabled={status === 'submitting' || !isFormspreeConfigured}
-                  className="w-full py-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-xs font-bold uppercase tracking-widest text-slate-300 hover:text-white transition-all flex items-center justify-center gap-3 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="bg-[#0F172A] text-white px-10 py-3.5 rounded-full text-sm font-semibold hover:bg-[#0F172A]/90 transition-all shadow-lg shadow-[#0F172A]/30 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  <Send className="w-4 h-4" />
-                  {status === 'submitting' ? 'Sending...' : 'Request Invite'}
+                  {status === 'submitting' ? 'SENDING...' : 'SEND'}
                 </button>
               </div>
             </form>
           </div>
 
-        </div>
         </div>
       </div>
     </section>

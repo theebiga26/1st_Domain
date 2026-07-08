@@ -8,6 +8,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import PartnerBanner from './components/PartnerBanner';
@@ -26,9 +27,17 @@ import Price from './components/Price';
 import ContactUs from './components/ContactUs';
 import Testimonial from './components/Testimonial';
 import FAQ from './components/FAQ';
+import CookieBanner, { type CookieConsent } from './components/CookieBanner';
+import TawkChat from './components/TawkChat';
 import './components/BackgroundAnimations.css';
 
 export default function App() {
+  const [consent, setConsent] = useState<CookieConsent | null>(null);
+
+  const handleConsent = (c: CookieConsent) => {
+    setConsent(c);
+  };
+
   return (
     <div className="relative min-h-screen bg-white text-brand-dark-navy antialiased overflow-x-hidden selection:bg-blue-600 selection:text-white">
       {/* Sticky Header Nav */}
@@ -68,6 +77,13 @@ export default function App() {
 
       {/* Section 13: Footer */}
       <Footer />
+
+      {/* Cookie Consent Banner */}
+      <CookieBanner onConsent={handleConsent} />
+
+      {/* Tawk.to Live Chat — only loads after cookie consent */}
+      <TawkChat chatEnabled={consent?.chat === true} />
     </div>
   );
 }
+

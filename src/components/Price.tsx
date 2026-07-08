@@ -67,7 +67,7 @@ export default function Price() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section id="pricing" className="py-24 sm:py-32 bg-slate-50 bg-animate-gradient-light relative overflow-hidden border-t border-slate-200">
+    <section id="pricing" className="py-12 sm:py-16 bg-[#0F172A] relative overflow-hidden border-t border-white/10">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         
@@ -77,10 +77,10 @@ export default function Price() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200 border border-slate-300 mb-4"
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20 mb-4"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-[#0F172A]" />
-            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#0F172A]">
+            <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white">
               Pricing
             </span>
           </motion.div>
@@ -89,7 +89,7 @@ export default function Price() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] mb-4 tracking-tight"
+            className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-tight"
           >
             Pick Your Level Of Intelligence.
           </motion.h2>
@@ -99,7 +99,7 @@ export default function Price() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-[#0F172A]/70 text-lg max-w-2xl mx-auto"
+            className="text-slate-400 text-lg max-w-2xl mx-auto"
           >
             Capacity-based models built to scale with your enterprise needs. No hidden fees.
           </motion.p>

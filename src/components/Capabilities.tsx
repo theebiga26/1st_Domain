@@ -167,7 +167,7 @@ export default function Capabilities() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/10 mb-4 backdrop-blur-sm"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#38BDF8]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#0F172A]" />
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-300">
               Core Capabilities
             </span>

@@ -61,6 +61,14 @@ body {
 .slide-up {
   animation: slide-up 0.8s ease-out forwards;
 }
+
+@keyframes slide-up-banner {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-up {
+  animation: slide-up-banner 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 .pulse {
   animation: pulse 2s infinite;
 }

@@ -1,6 +1,9 @@
 import { ReactNode } from 'react';
 import { motion } from 'motion/react';
-import { Network, Database, Settings, Play } from 'lucide-react';
+import platform1 from '../assets/logos/platform_1.svg';
+import platform2 from '../assets/logos/platform_2.svg';
+import platform3 from '../assets/logos/platform_3.svg';
+import platform4 from '../assets/logos/platform_4.svg';
 
 interface StepItem {
   id: number;
@@ -19,28 +22,28 @@ export default function HowItWorks() {
       title: 'Link Resources',
       fullTitle: 'Link Cluster Resources',
       description: 'Deploy our lightweight VertexDaemon onto your bare metal or existing cloud accounts. Within seconds, global GPU instances join your logical orchestration pool.',
-      icon: <Database className="w-8 h-8" />
+      icon: <img src={platform1} alt="link resources" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     },
     {
       id: 2,
       title: 'Configure Workload',
       fullTitle: 'Configure Workload Profiles',
       description: 'Upload your standard PyTorch training scripts or inference container tags. Select target parameters: epoch count, checkpoints frequency, failover sensitivity.',
-      icon: <Settings className="w-8 h-8" />
+      icon: <img src={platform2} alt="configure workload" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     },
     {
       id: 3,
       title: 'Schedule Allocation',
       fullTitle: 'Intelligent Schedule Allocation',
       description: 'Our proprietary scheduler splits and optimizes node allocations, mapping high-memory weights to the closest physical nodes to minimize network latency overhead.',
-      icon: <Network className="w-8 h-8" />
+      icon: <img src={platform3} alt="schedule allocation" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     },
     {
       id: 4,
       title: 'Run & Monitor',
       fullTitle: 'Run, Monitor & Scale',
       description: 'Watch training loss curves or active inference rates in real-time. If a physical node fails, our hot weight swap restores execution to a spare node instantly.',
-      icon: <Play className="w-8 h-8" />
+      icon: <img src={platform4} alt="run and monitor" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     }
   ];
 
@@ -132,8 +135,8 @@ export default function HowItWorks() {
                 </p>
 
                 <div className="mt-auto pt-10 flex items-end justify-between relative z-10">
-                  {/* Icon */}
-                  <div className="text-[#0F172A] bg-white p-2 rounded-full shadow-sm transition-transform hover:scale-110">
+                  {/* Icon (enhanced logo, no boxed background) */}
+                  <div className="p-0 transition-transform transform hover:scale-105 drop-shadow-md">
                     {step.icon}
                   </div>
                 </div>

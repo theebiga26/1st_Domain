@@ -1,36 +1,41 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import testimonial1 from '../assets/logos/testimonial_1.svg';
+import testimonial2 from '../assets/logos/testimonial_2.svg';
+import testimonial3 from '../assets/logos/testimonial_3.svg';
+import testimonial4 from '../assets/logos/testimonial_4.svg';
+import testimonial5 from '../assets/logos/testimonial_5.svg';
 
 const reviews = [
   {
     id: 1,
     name: 'SARAH JENKINS',
     text: 'VertexGrid scaled our inference by 10x without us having to manage any of the underlying Kubernetes orchestration. It just works seamlessly.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=600&h=800'
+    image: testimonial1
   },
   {
     id: 2,
     name: 'DAVID CHEN',
     text: 'The dashboard gives us absolute clarity over our GPU usage across different clouds. We slashed our idle compute waste by over 40% in the first month.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=800'
+    image: testimonial2
   },
   {
     id: 3,
     name: 'ELENA RODRIGUEZ',
     text: 'Moving our distributed training to VertexGrid was the best architectural decision we made this year. The automated node failover saved us multiple times.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=600&h=800'
+    image: testimonial3
   },
   {
     id: 4,
     name: 'TOM MEYER',
     text: 'Freehand makes it a breeze to sketch, draw, wireframe, and get instant feedback on work-in-progress designs.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600&h=800'
+    image: testimonial4
   },
   {
     id: 5,
     name: 'MARCUS WRIGHT',
     text: 'Enterprise-grade security meets unparalleled ease of use. The SOC2 compliance and VPC peering meant we could deploy instantly with InfoSec approval.',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600&h=800'
+    image: testimonial5
   }
 ];
 

@@ -1,6 +1,11 @@
 import { useState, useRef, useEffect, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Layers, Zap, Cpu, ShieldAlert, CpuIcon, Cloud } from 'lucide-react';
+import coreCap1 from '../assets/logos/core_cap_1.svg';
+import coreCap2 from '../assets/logos/core_cap_2.svg';
+import coreCap3 from '../assets/logos/core_cap_3.svg';
+import coreCap4 from '../assets/logos/core_cap_4.svg';
+import coreCap5 from '../assets/logos/core_cap_5.svg';
+import coreCap6 from '../assets/logos/core_cap_6.svg';
 
 interface Capability {
   icon: ReactNode;
@@ -12,43 +17,43 @@ interface Capability {
 
 const list: Capability[] = [
   {
-    icon: <Layers className="w-6 h-6" />,
+    icon: <img src={coreCap1} alt="Decentralized GPU Pooling" className="h-8 w-auto object-contain" />,
     title: 'Decentralized GPU Pooling',
     description: 'Aggregate massive, multi-region GPU clusters (NVIDIA H100, H200, B200) into a single unified virtual supercomputer with zero layout overhead.',
     badge: 'High Availability',
-    image: '/capabilities/cap_gpu_pooling_1783150056001.png',
+    image: coreCap1,
   },
   {
-    icon: <Zap className="w-6 h-6" />,
+    icon: <img src={coreCap2} alt="Adaptive Priority Scheduling" className="h-8 w-auto object-contain" />,
     title: 'Adaptive Priority Scheduling',
     description: 'Our proprietary micro-scheduler allocates computational cycles dynamically based on training loss curves, reducing idle run times by up to 34%.',
     badge: 'Live Auto-Scheduler',
-    image: '/capabilities/cap_scheduler_1783150070635.png',
+    image: coreCap2,
   },
   {
-    icon: <Cpu className="w-6 h-6" />,
+    icon: <img src={coreCap3} alt="Fractional Virtual GPU Split" className="h-8 w-auto object-contain" />,
     title: 'Fractional Virtual GPU Split',
     description: 'Sliver individual physical GPUs into dynamic logical partitions, providing isolated, microsecond-accurate slices to multiple container tasks.',
-    image: '/capabilities/cap_vgpu_1783150084572.png',
+    image: coreCap3,
   },
   {
-    icon: <ShieldAlert className="w-6 h-6" />,
+    icon: <img src={coreCap4} alt="Zero-Downtime Weight Hot Swap" className="h-8 w-auto object-contain" />,
     title: 'Zero-Downtime Weight Hot Swap',
     description: 'Seamlessly shift distributed model states across nodes in the event of hardware deterioration, ensuring uninterrupted epoch generation.',
     badge: 'Fail-Safe',
-    image: '/capabilities/cap_hotswap_1783150102370.png',
+    image: coreCap4,
   },
   {
-    icon: <Cloud className="w-6 h-6" />,
+    icon: <img src={coreCap5} alt="Native Multi-Cloud Connect" className="h-8 w-auto object-contain" />,
     title: 'Native Multi-Cloud Connect',
     description: 'Connect existing AWS, Azure, Google Cloud pipelines with premium high-bandwidth fiber backbones directly into bare-metal cluster instances.',
-    image: '/capabilities/cap_multicloud_1783150116235.png',
+    image: coreCap5,
   },
   {
-    icon: <CpuIcon className="w-6 h-6" />,
+    icon: <img src={coreCap6} alt="Intelligent Warm Pool Buffering" className="h-8 w-auto object-contain" />,
     title: 'Intelligent Warm Pool Buffering',
     description: 'Maintain low-cost, lightning-fast pre-warmed container environments to execute training epochs instantaneously upon resource allocation.',
-    image: '/capabilities/cap_warmpool_1783150223988.png',
+    image: coreCap6,
   },
 ];
 

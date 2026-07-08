@@ -1,7 +1,10 @@
 import { useState, useEffect, ReactNode, cloneElement } from 'react';
 import { motion } from 'motion/react';
 import './MetricsCardBorder.css';
-import { TrendingUp, ShieldAlert, BadgeDollarSign, Cpu } from 'lucide-react';
+import perform1 from '../assets/logos/perform_1.svg';
+import perform2 from '../assets/logos/perform_2.svg';
+import perform3 from '../assets/logos/perform_3.svg';
+import perform4 from '../assets/logos/perform_4.svg';
 
 interface MetricItem {
   id: string;
@@ -17,7 +20,7 @@ export default function Metrics() {
   const metricsList: MetricItem[] = [
     {
       id: 'availability',
-      icon: <ShieldAlert className="w-5 h-5" />,
+      icon: <img src={perform1} alt="availability" className="w-16 h-16" />,
       value: '99.99',
       suffix: '%',
       label: 'Infrastructure SLA',
@@ -26,7 +29,7 @@ export default function Metrics() {
     },
     {
       id: 'acceleration',
-      icon: <TrendingUp className="w-5 h-5" />,
+      icon: <img src={perform2} alt="acceleration" className="w-16 h-16" />,
       value: '3.5',
       suffix: 'x',
       label: 'Model Training Speedup',
@@ -35,7 +38,7 @@ export default function Metrics() {
     },
     {
       id: 'optimization',
-      icon: <BadgeDollarSign className="w-5 h-5" />,
+      icon: <img src={perform3} alt="optimization" className="w-16 h-16" />,
       value: '70',
       suffix: '%',
       label: 'Infrastructure Cost Reductions',
@@ -44,7 +47,7 @@ export default function Metrics() {
     },
     {
       id: 'cores',
-      icon: <Cpu className="w-5 h-5" />,
+      icon: <img src={perform4} alt="cores" className="w-16 h-16" />,
       value: '50,000',
       suffix: '+',
       label: 'GPU Cores Coordinated',
@@ -156,7 +159,7 @@ export default function Metrics() {
                   {/* The inner white area */}
                   <div 
                     className="relative bg-white w-full h-full flex flex-col justify-center items-center p-6 text-center"
-                    style={{ clipPath: "polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)" }}
+                    style={{ clipPath: "polygon(30px 0, 100% 0, 100% 100%, 0 100%, 0 30px)" }}
                   >
                      {/* Shimmer Effect overlay */}
                      <div className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-[#1E3A8A]/[0.03] to-transparent hidden group-hover:block animate-shimmer pointer-events-none" />
@@ -176,11 +179,9 @@ export default function Metrics() {
                   </span>
                 </div>
 
-                {/* Bottom Right Icon overlay */}
-                <div className="absolute bottom-0 right-0 bg-white pl-3 pt-3 pb-0 pr-0 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2 group-hover:translate-x-1">
-                  <div className="text-[#1E3A8A] w-10 h-10 flex justify-center items-center bg-[#F1F5F9] rounded-xl border border-slate-200 group-hover:bg-[#0F172A] group-hover:border-[#0F172A] group-hover:text-white transition-colors duration-300 shadow-sm">
-                     {cloneElement(metric.icon as React.ReactElement, { className: "w-5 h-5" })}
-                  </div>
+                {/* Bottom Right Logo (subtle movement on hover) */}
+                <div className="absolute bottom-2 right-2 z-10 pointer-events-none transform transition-transform duration-500 group-hover:-translate-y-2 group-hover:translate-x-1">
+                  {metric.icon}
                 </div>
               </motion.div>
             );

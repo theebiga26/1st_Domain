@@ -1,5 +1,8 @@
 import { motion } from 'motion/react';
 import { Play } from 'lucide-react';
+import aboutCenter from '../assets/logos/about us_1.svg';
+import aboutTop from '../assets/logos/about us_2.svg';
+import aboutBottom from '../assets/logos/about us_3.svg';
 
 export default function About() {
   return (
@@ -33,26 +36,26 @@ export default function About() {
                 className="absolute inset-0 rounded-full overflow-hidden shadow-2xl border-[6px] border-white z-10"
               >
                 <img
-                  src="/about/about_main_1783151931241.png"
-                  alt="AI Server Infrastructure"
+                  src={aboutTop}
+                  alt="About us center image"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
 
-              {/* Medium Overlapping Image (Top Right) */}
-              <motion.div
-                initial={{ opacity: 0, x: 30, y: -30 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="absolute -right-4 top-4 sm:-right-8 sm:top-8 w-32 h-32 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-xl border-[4px] border-white z-20"
-              >
-                <img
-                  src="/metrics/metric_cores_1783151106642.png"
-                  alt="GPU Mesh Network"
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
+                {/* Medium Overlapping Image (Top Right) */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30, y: -30 }}
+                  whileInView={{ opacity: 1, x: 0, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  className="absolute -right-4 top-4 sm:-right-8 sm:top-8 w-32 h-32 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-xl border-[4px] border-white z-20"
+                >
+                  <img
+                    src={aboutCenter}
+                    alt="About us top circle image"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
 
               {/* Small Overlapping Image (Bottom Left) */}
               <motion.div
@@ -63,8 +66,8 @@ export default function About() {
                 className="absolute -left-6 bottom-12 sm:-left-12 sm:bottom-16 w-24 h-24 sm:w-36 sm:h-36 rounded-full overflow-hidden shadow-xl border-[4px] border-white z-20"
               >
                 <img
-                  src="/capabilities/cap_vgpu_1783150084572.png"
-                  alt="Data Streams"
+                  src={aboutBottom}
+                  alt="About us bottom round image"
                   className="w-full h-full object-cover"
                 />
               </motion.div>

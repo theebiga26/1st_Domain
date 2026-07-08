@@ -1,6 +1,12 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { Cpu, Zap, Activity, Box, Server, Globe } from 'lucide-react';
+import { Box, Server, Activity, Cpu } from 'lucide-react';
+import heroVideo from '../assets/logos/hero_video.mp4';
+import heroIcon1 from '../assets/logos/hero icon_1.svg';
+import heroIcon2 from '../assets/logos/hero icon_2.svg';
+import heroIcon3 from '../assets/logos/hero icon_3.svg';
+import heroIcon4 from '../assets/logos/hero icon_4.svg';
+
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -275,8 +281,18 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen pt-28 pb-10 flex flex-col justify-center overflow-hidden bg-[#0F172A]"
     >
-      {/* Canvas Background for Exact 3D Replica */}
-      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block z-0" />
+      {/* Video Background */}
+      <video
+        src={heroVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      />
+
+      {/* Canvas Background for Exact 3D Replica (hidden when using video) */}
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full hidden z-0" />
 
       {/* SVG Connecting Lines for Callouts */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 hidden lg:block" style={{ filter: 'drop-shadow(0 0 4px rgba(14,165,233,0.5))' }}>
@@ -287,33 +303,13 @@ export default function Hero() {
       </svg>
 
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20 flex-1 flex flex-col justify-center h-full">
         
         {/* Absolute Callouts - Styled exactly like the image */}
-        <div className="hidden lg:block absolute top-[180px] left-[150px] bg-[#0F172A]/80 border border-[#0ea5e9]/40 px-4 py-2.5 rounded-[10px] backdrop-blur-md flex items-center gap-3">
-           <div className="text-[#38bdf8]"><Box className="w-5 h-5" /></div>
-           <span className="text-[11px] font-bold text-white uppercase tracking-wider leading-tight">DISTRIBUTED<br/>TRAINING</span>
-        </div>
-
-        <div className="hidden lg:block absolute top-[140px] right-[250px] bg-[#0F172A]/80 border border-[#0ea5e9]/40 px-4 py-2.5 rounded-[10px] backdrop-blur-md flex items-center gap-3">
-           <div className="text-[#38bdf8]"><Activity className="w-5 h-5" /></div>
-           <span className="text-[11px] font-bold text-white uppercase tracking-wider leading-tight">INFERENCE<br/>ACCELERATION</span>
-        </div>
-
-        <div className="hidden lg:block absolute top-[360px] right-[150px] bg-[#0F172A]/80 border border-[#0ea5e9]/40 px-4 py-2.5 rounded-[10px] backdrop-blur-md flex items-center gap-3">
-           <div className="text-[#38bdf8]"><Server className="w-5 h-5" /></div>
-           <span className="text-[11px] font-bold text-white uppercase tracking-wider leading-tight">INTELLIGENT<br/>ORCHESTRATION</span>
-        </div>
-
-        <div className="hidden lg:block absolute bottom-[220px] right-[210px] bg-[#0F172A]/80 border border-[#0ea5e9]/40 px-4 py-2.5 rounded-[10px] backdrop-blur-md flex items-center gap-3">
-           <div className="text-[#38bdf8]"><Cpu className="w-5 h-5" /></div>
-           <span className="text-[11px] font-bold text-white uppercase tracking-wider leading-tight">GPU RESOURCE<br/>MANAGEMENT</span>
-        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full pt-10">
           
           {/* Left Column - Text Content */}
-          <div className="flex flex-col items-start text-left relative z-30">
+          <div className="flex flex-col items-start text-left relative z-30 lg:pl-10 xl:pl-16">
             
             {/* Tagline */}
             <motion.div
@@ -378,29 +374,29 @@ export default function Hero() {
               className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-8 w-full"
             >
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2 text-[#0ea5e9]">
-                  <Cpu className="w-5 h-5" />
+                <div className="flex items-center gap-3">
+                  <img src={heroIcon1} alt="GPU's Managed" className="h-8 w-auto object-contain" />
                   <span className="font-display text-2xl font-bold text-white tracking-tight">10K+</span>
                 </div>
                 <div className="text-[13px] text-slate-400 font-medium">GPU's Managed</div>
               </div>
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2 text-[#0ea5e9]">
-                  <Globe className="w-5 h-5" />
+                <div className="flex items-center gap-3">
+                  <img src={heroIcon2} alt="Compute Nodes" className="h-8 w-auto object-contain" />
                   <span className="font-display text-2xl font-bold text-white tracking-tight">1.2M+</span>
                 </div>
                 <div className="text-[13px] text-slate-400 font-medium">Compute Nodes</div>
               </div>
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2 text-[#0ea5e9]">
-                  <Zap className="w-5 h-5" />
+                <div className="flex items-center gap-3">
+                  <img src={heroIcon3} alt="Uptime SLA" className="h-8 w-auto object-contain" />
                   <span className="font-display text-2xl font-bold text-white tracking-tight">99.9%</span>
                 </div>
                 <div className="text-[13px] text-slate-400 font-medium">Uptime SLA</div>
               </div>
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-2 text-[#0ea5e9]">
-                  <Activity className="w-5 h-5" />
+                <div className="flex items-center gap-3">
+                  <img src={heroIcon4} alt="Better Efficiency" className="h-8 w-auto object-contain" />
                   <span className="font-display text-2xl font-bold text-white tracking-tight">85%</span>
                 </div>
                 <div className="text-[13px] text-slate-400 font-medium">Better Efficiency</div>
@@ -409,37 +405,8 @@ export default function Hero() {
 
           </div>
         </div>
-      </div>
 
-      {/* Powered By Bottom Strip Card */}
-      <div className="absolute bottom-6 right-6 lg:right-12 bg-[#020617]/80 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center gap-6 px-8 py-4 z-30 shadow-2xl">
-        <span className="text-[10px] font-bold text-slate-500 tracking-[0.2em]">POWERED BY</span>
-        <div className="flex items-center gap-6 opacity-90">
-          <div className="flex items-center gap-1.5 text-white font-bold text-sm">
-             <div className="w-5 h-5 bg-[#76B900] rounded-sm flex items-center justify-center shrink-0">
-                <div className="w-2.5 h-2.5 border-t-2 border-r-2 border-white rounded-tr-sm rotate-45 transform translate-y-[1px] -translate-x-[1px]"></div>
-             </div>
-             NVIDIA <span className="font-normal text-slate-400 text-xs ml-1">SDK</span>
-          </div>
-          <div className="text-white font-bold text-sm flex items-center gap-1">
-             <span className="text-[#FF9900]">aws</span>
-          </div>
-          <div className="text-white font-bold text-sm flex items-center gap-1">
-             <div className="grid grid-cols-2 gap-[1px] w-4 h-4">
-               <div className="bg-[#f25022]"></div><div className="bg-[#7fba00]"></div>
-               <div className="bg-[#00a4ef]"></div><div className="bg-[#ffb900]"></div>
-             </div>
-             Microsoft Azure
-          </div>
-          <div className="text-white font-bold text-sm">
-             Google Cloud
-          </div>
-          <div className="text-white font-bold text-sm flex items-center gap-1">
-             <div className="text-[#326ce5] text-lg leading-none">⎈</div>
-             kubernetes
-          </div>
-        </div>
-      </div>
+     
     </section>
   );
 }

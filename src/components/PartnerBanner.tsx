@@ -1,39 +1,36 @@
 import { motion } from 'motion/react';
-import { SiNvidia, SiGooglecloud, SiKubernetes, SiPytorch } from "react-icons/si";
-import { VscAzure } from "react-icons/vsc";
-import { FaAws } from "react-icons/fa";
+import nvidiaLogo from '../assets/logos/powered by icon_1.svg';
+import awsLogo from '../assets/logos/powered by icon_2.svg';
+import azureLogo from '../assets/logos/powered by icon_3.svg';
+import googleCloudLogo from '../assets/logos/powered by icon_4.svg';
+import kubernetesLogo from '../assets/logos/powered by icon_5.svg';
 
 export default function PartnerBanner() {
   const partners = [
     {
       name: 'NVIDIA',
-      icon: <SiNvidia className="w-8 h-8 text-[#76B900]" />,
+      icon: <object data={nvidiaLogo} type="image/svg+xml" aria-label="NVIDIA logo" className="h-8 w-auto object-contain" />,
       text: 'NVIDIA SDK'
     },
     {
       name: 'AWS',
-      icon: <FaAws className="w-8 h-8 text-[#FF9900]" />,
+      icon: <object data={awsLogo} type="image/svg+xml" aria-label="AWS logo" className="h-8 w-auto object-contain" />,
       text: 'AWS'
     },
     {
       name: 'Microsoft Azure',
-      icon: <VscAzure className="w-8 h-8 text-[#0089D6]" />,
+      icon: <object data={azureLogo} type="image/svg+xml" aria-label="Microsoft Azure logo" className="h-8 w-auto object-contain" />,
       text: 'Microsoft Azure'
     },
     {
       name: 'Google Cloud',
-      icon: <SiGooglecloud className="w-8 h-8 text-[#4285F4]" />,
+      icon: <object data={googleCloudLogo} type="image/svg+xml" aria-label="Google Cloud logo" className="h-8 w-auto object-contain" />,
       text: 'Google Cloud'
     },
     {
       name: 'Kubernetes',
-      icon: <SiKubernetes className="w-8 h-8 text-[#326CE5]" />,
-      text: 'kubernetes'
-    },
-    {
-      name: 'PyTorch',
-      icon: <SiPytorch className="w-8 h-8 text-[#EE4C2C]" />,
-      text: 'PyTorch'
+      icon: <object data={kubernetesLogo} type="image/svg+xml" aria-label="Kubernetes logo" className="h-8 w-auto object-contain" />,
+      text: 'Kubernetes'
     }
   ];
 
@@ -55,16 +52,9 @@ export default function PartnerBanner() {
 
       {/* Marquee Container */}
       <div className="flex items-center overflow-hidden w-full pl-40">
-        <motion.div 
-          className="flex items-center gap-16 md:gap-24 whitespace-nowrap"
+        <div 
+          className="flex items-center gap-16 md:gap-24 whitespace-nowrap marquee"
           style={{ width: 'max-content' }}
-          initial={{ x: 0 }}
-          animate={{ x: "-50%" }}
-          transition={{
-            repeat: Infinity,
-            ease: "linear",
-            duration: 30, // Adjust speed here
-          }}
         >
           {duplicatedPartners.map((partner, index) => (
             <motion.div
@@ -91,7 +81,7 @@ export default function PartnerBanner() {
               )}
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </div>
   );

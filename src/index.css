@@ -1,5 +1,4 @@
-/* Fonts and Tailwind */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Tailwind CSS */
 @import "tailwindcss";
 @tailwind base;
 @tailwind components;
@@ -31,6 +30,24 @@ body {
   color: #0F172A;
   background-color: #FFFFFF;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+}
+
+/* Ensure font-display:swap is respected via CSS fallbacks */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  src: local('Inter');
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-display: swap;
+  src: local('Plus Jakarta Sans');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-display: swap;
+  src: local('JetBrains Mono');
 }
 
 .font-display {
@@ -109,4 +126,26 @@ body {
 .marquee {
   animation: marquee 28s linear infinite;
   will-change: transform;
+  transform: translateZ(0); /* force GPU composite layer */
+}
+
+/* Performance: reduce paint area for off-screen sections */
+.content-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee {
+    animation: none;
+  }
 }

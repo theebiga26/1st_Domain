@@ -31,7 +31,22 @@ export default function TawkChat({ chatEnabled }: TawkChatProps) {
     s1.charset = 'UTF-8';
     s1.setAttribute('crossorigin', '*');
     s1.id = 'tawk-script';
+    // Add title to Tawk iframe for accessibility (Lighthouse audit fix)
+    const addTitleToTawkIframe = () => {
+      const iframes = document.querySelectorAll('iframe[src*="tawk.to"]');
+      iframes.forEach((iframe) => {
+        if (!iframe.getAttribute('title')) {
+          iframe.setAttribute('title', 'Live Chat Support');
+        }
+      });
+    };
+
+    const observer = new MutationObserver(addTitleToTawkIframe);
+    observer.observe(document.body, { childList: true, subtree: true });
+
     s0.parentNode!.insertBefore(s1, s0);
+
+    return () => observer.disconnect();
   }, [chatEnabled]);
 
   return null;

@@ -67,8 +67,8 @@ export default function Header() {
           
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <img src={logoUrl} alt="VertexGrid" className="w-32 sm:w-40 md:w-48 h-auto transition-transform duration-300 group-hover:scale-105" />
+            <Link to="/" className="flex items-center gap-2.5 group" aria-label="VertexGrid Home">
+              <img src={logoUrl} alt="VertexGrid" width="192" height="48" className="w-32 sm:w-40 md:w-48 h-auto transition-transform duration-300 group-hover:scale-105" />
             </Link>
           </div>
 
@@ -100,6 +100,8 @@ export default function Header() {
           <div className="md:hidden flex items-center gap-3">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={mobileMenuOpen}
               className="p-2 rounded-xl border transition-colors text-slate-700 border-slate-200 bg-slate-50 hover:bg-slate-100"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

@@ -279,6 +279,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      aria-label="Hero - Enterprise AI Compute Platform"
       className="relative min-h-screen pt-28 pb-10 flex flex-col justify-center overflow-hidden bg-[#0F172A]"
     >
       {/* Video Background */}
@@ -288,8 +289,11 @@ export default function Hero() {
         muted
         loop
         playsInline
+        aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover z-0"
-      />
+      >
+        <track kind="captions" srcLang="en" label="English" />
+      </video>
 
       {/* Canvas Background for Exact 3D Replica (hidden when using video) */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full hidden z-0" />
@@ -375,28 +379,28 @@ export default function Hero() {
             >
               <div className="flex flex-col gap-1">
                 <div className="flex items-center gap-3">
-                  <img src={heroIcon1} alt="GPU's Managed" className="h-8 w-auto object-contain" />
+                  <img src={heroIcon1} alt="" width="32" height="32" className="h-8 w-8 object-contain" aria-hidden="true" />
                   <span className="font-display text-2xl font-bold text-white tracking-tight">10K+</span>
                 </div>
                 <div className="text-[13px] text-slate-400 font-medium">GPU's Managed</div>
               </div>
               <div className="flex flex-col gap-1">
                 <div className="flex items-center gap-3">
-                  <img src={heroIcon2} alt="Compute Nodes" className="h-8 w-auto object-contain" />
+                  <img src={heroIcon2} alt="" width="32" height="32" className="h-8 w-8 object-contain" aria-hidden="true" />
                   <span className="font-display text-2xl font-bold text-white tracking-tight">1.2M+</span>
                 </div>
                 <div className="text-[13px] text-slate-400 font-medium">Compute Nodes</div>
               </div>
               <div className="flex flex-col gap-1">
                 <div className="flex items-center gap-3">
-                  <img src={heroIcon3} alt="Uptime SLA" className="h-8 w-auto object-contain" />
+                  <img src={heroIcon3} alt="" width="32" height="32" className="h-8 w-8 object-contain" aria-hidden="true" />
                   <span className="font-display text-2xl font-bold text-white tracking-tight">99.9%</span>
                 </div>
                 <div className="text-[13px] text-slate-400 font-medium">Uptime SLA</div>
               </div>
               <div className="flex flex-col gap-1">
                 <div className="flex items-center gap-3">
-                  <img src={heroIcon4} alt="Better Efficiency" className="h-8 w-auto object-contain" />
+                  <img src={heroIcon4} alt="" width="32" height="32" className="h-8 w-8 object-contain" aria-hidden="true" />
                   <span className="font-display text-2xl font-bold text-white tracking-tight">85%</span>
                 </div>
                 <div className="text-[13px] text-slate-400 font-medium">Better Efficiency</div>

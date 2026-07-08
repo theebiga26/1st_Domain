@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect, ReactNode, cloneElement } from 'react';
 import { motion } from 'motion/react';
 import './MetricsCardBorder.css';
 import { TrendingUp, ShieldAlert, BadgeDollarSign, Cpu } from 'lucide-react';
@@ -81,25 +81,7 @@ export default function Metrics() {
     return () => clearInterval(interval);
   }, []);
 
-  // Helper to generate SVG paths
-  const generatePath = (data: number[], width = 100, height = 30) => {
-    const max = Math.max(...data);
-    const min = Math.min(...data);
-    const range = max - min || 1;
 
-    const points = data.map((val, i) => {
-      const x = (i / (data.length - 1)) * width;
-      const y = height - (((val - min) / range) * height);
-      return `${x},${y}`;
-    });
-
-    return `M ${points.join(' L ')}`;
-  };
-
-  const generateArea = (data: number[], width = 100, height = 30) => {
-    const path = generatePath(data, width, height);
-    return `${path} L ${width},${height} L 0,${height} Z`;
-  };
 
   return (
     <section id="metrics" className="py-24 sm:py-32 bg-white relative border-b border-slate-100 overflow-hidden">
@@ -145,7 +127,7 @@ export default function Metrics() {
         </div>
 
         {/* Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-12 max-w-7xl mx-auto px-4 sm:px-6">
           {metricsList.map((metric, idx) => {
             // Get animated value based on id
             let displayValue = metric.value;
@@ -154,9 +136,6 @@ export default function Metrics() {
             else if (metric.id === 'optimization') displayValue = counts.optimization.toString();
             else if (metric.id === 'cores') displayValue = counts.cores.toLocaleString();
 
-            const pathD = generatePath(metric.sparkline);
-            const areaD = generateArea(metric.sparkline);
-
             return (
               <motion.div
                 key={metric.id}
@@ -164,40 +143,43 @@ export default function Metrics() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="relative p-[2px] rounded-[26px] overflow-hidden group h-full shadow-sm hover:shadow-2xl hover:shadow-[#1E3A8A]/20 transition-all duration-500"
+                className="relative group h-[280px] w-full flex flex-col"
               >
-                {/* Animated Spinning Blue Border */}
-                <div className="absolute inset-[-150%] bg-[conic-gradient(from_0deg_at_50%_50%,#CBD5E1_0%,#1E3A8A_50%,#CBD5E1_100%)] group-hover:bg-[conic-gradient(from_0deg_at_50%_50%,#38BDF8_0%,#0F172A_50%,#38BDF8_100%)] animate-[spin_6s_linear_infinite] transition-colors duration-500" />
+                {/* The main border shape containing the animated gradient */}
+                <div 
+                  className="relative p-[2px] w-full h-full transition-transform duration-500 group-hover:-translate-y-2 overflow-hidden flex-1 drop-shadow-sm group-hover:drop-shadow-xl"
+                  style={{ clipPath: "polygon(32px 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%, 0 32px)" }}
+                >
+                  {/* Animated Spinning Blue Border Background */}
+                  <div className="absolute inset-[-150%] bg-[conic-gradient(from_0deg_at_50%_50%,#CBD5E1_0%,#1E3A8A_50%,#CBD5E1_100%)] group-hover:bg-[conic-gradient(from_0deg_at_50%_50%,#38BDF8_0%,#0F172A_50%,#38BDF8_100%)] animate-[spin_6s_linear_infinite] transition-colors duration-500" />
 
-                {/* Inner White Card Layer */}
-                <div className="relative bg-white rounded-[24px] p-6 flex flex-col justify-between overflow-hidden h-full">
-                  {/* Shimmer Effect overlay */}
-                  <div className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-[#1E3A8A]/[0.03] to-transparent hidden group-hover:block animate-shimmer pointer-events-none" />
+                  {/* The inner white area */}
+                  <div 
+                    className="relative bg-white w-full h-full flex flex-col justify-center items-center p-6 text-center"
+                    style={{ clipPath: "polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)" }}
+                  >
+                     {/* Shimmer Effect overlay */}
+                     <div className="absolute inset-0 w-[200%] bg-gradient-to-r from-transparent via-[#1E3A8A]/[0.03] to-transparent hidden group-hover:block animate-shimmer pointer-events-none" />
 
-                  <div className="relative z-10 flex flex-col h-full">
-                    {/* Top: Icon and Label */}
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2.5 rounded-xl bg-[#F1F5F9] border border-slate-200 text-[#1E3A8A] group-hover:bg-[#0F172A] group-hover:border-[#0F172A] group-hover:[&>svg]:text-white transition-colors duration-300">
-                        {metric.icon}
-                      </div>
-                      <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                        {metric.label}
-                      </span>
-                    </div>
+                     <h3 className="text-lg sm:text-xl font-bold text-[#0F172A] mb-3 relative z-10 leading-tight px-2">{metric.label}</h3>
+                     <p className="text-slate-500 text-xs sm:text-sm leading-relaxed relative z-10 max-w-[90%]">{metric.description}</p>
+                  </div>
+                </div>
 
-                    {/* Gigantic numeric stat */}
-                    <div className="flex items-baseline mb-3">
-                      <span className="font-display text-4xl sm:text-5xl font-extrabold text-[#0F172A] tracking-tight font-mono group-hover:text-[#0F172A] transition-colors duration-300">
-                        {displayValue}
-                      </span>
-                      <span className="font-display text-2xl font-bold text-[#1E3A8A] ml-1">
-                        {metric.suffix}
-                      </span>
-                    </div>
+                {/* Top Left Number overlay */}
+                <div className="absolute top-0 left-0 flex items-baseline bg-white pl-0 pr-3 pb-3 pt-0 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2 group-hover:-translate-x-1">
+                  <span className="font-display text-4xl xl:text-5xl font-black text-[#0F172A] tracking-tighter leading-none">
+                    {displayValue}
+                  </span>
+                  <span className="font-display text-xl font-bold text-[#0F172A] ml-1">
+                    {metric.suffix}
+                  </span>
+                </div>
 
-                    <p className="text-slate-500 text-sm leading-relaxed mb-4">
-                      {metric.description}
-                    </p>
+                {/* Bottom Right Icon overlay */}
+                <div className="absolute bottom-0 right-0 bg-white pl-3 pt-3 pb-0 pr-0 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2 group-hover:translate-x-1">
+                  <div className="text-[#1E3A8A] w-10 h-10 flex justify-center items-center bg-[#F1F5F9] rounded-xl border border-slate-200 group-hover:bg-[#0F172A] group-hover:border-[#0F172A] group-hover:text-white transition-colors duration-300 shadow-sm">
+                     {cloneElement(metric.icon as React.ReactElement, { className: "w-5 h-5" })}
                   </div>
                 </div>
               </motion.div>

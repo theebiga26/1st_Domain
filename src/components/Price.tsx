@@ -41,6 +41,7 @@ const pricingTiers = [
     hrefAnnually: 'https://buy.stripe.com/test_bJefZh8wa8Sb2RC3YU8AE05',
     theme: '#0F172A',
     themeDark: '#020617',
+    isMostPopular: true,
   },
   {
     name: 'Enterprise',
@@ -136,12 +137,21 @@ export default function Price() {
           {pricingTiers.map((tier, idx) => (
             <motion.div
               key={tier.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, scale: tier.isMostPopular ? 0.98 : 1 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              whileHover={tier.isMostPopular ? { scale: 1.06 } : {}}
+              whileTap={tier.isMostPopular ? { scale: 1.04 } : undefined}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.15 }}
-              className="bg-white rounded-[2rem] rounded-tl-xl rounded-br-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col relative pt-6 pb-6 transition-transform hover:-translate-y-2 duration-300"
+              transition={{ duration: 0.5, delay: idx * 0.15, type: 'spring', stiffness: 120 }}
+              className={`bg-white rounded-[2rem] rounded-tl-xl rounded-br-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col relative pt-10 pb-6 overflow-visible transition-transform ${tier.isMostPopular ? 'border-2 border-[#0F172A] shadow-[0_12px_36px_rgb(15,23,42,0.18)] hover:-translate-y-2' : 'hover:-translate-y-2 duration-300'}`}
             >
+              {tier.isMostPopular ? (
+                <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+                  <span className="inline-flex items-center justify-center rounded-full bg-[#0F172A] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.3em] text-white shadow-lg">
+                    Most Popular
+                  </span>
+                </div>
+              ) : null}
               
               {/* Header Ribbon */}
               <div className="relative mb-6 text-left">

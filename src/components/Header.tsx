@@ -84,7 +84,7 @@ export default function Header() {
       }`}
     >
       <div className="px-3 sm:px-5 md:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
+        <div className="flex items-center justify-between h-11 sm:h-12 md:h-14">
           
           {/* Logo */}
           <div className="flex items-center gap-3">

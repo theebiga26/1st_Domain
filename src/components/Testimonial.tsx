@@ -9,32 +9,37 @@ import testimonial5 from '../assets/logos/testimonial_5.svg';
 const reviews = [
   {
     id: 1,
-    name: 'SARAH JENKINS',
-    text: 'VertexGrid scaled our inference by 10x without us having to manage any of the underlying Kubernetes orchestration. It just works seamlessly.',
+    name: 'Dr. Amelia Carter',
+    position: 'Director of AI Infrastructure',
+    text: 'VertexGrid has transformed the way we manage enterprise AI computing. Resource allocation is smarter, training cycles are significantly faster, and infrastructure visibility has improved across every department.',
     image: testimonial1
   },
   {
     id: 2,
-    name: 'DAVID CHEN',
-    text: 'The dashboard gives us absolute clarity over our GPU usage across different clouds. We slashed our idle compute waste by over 40% in the first month.',
+    name: 'Ethan Brooks',
+    position: 'Lead Machine Learning Engineer',
+    text: 'Managing distributed GPU environments used to require multiple tools. VertexGrid unified everything into one intelligent platform that our engineering teams rely on every day.',
     image: testimonial2
   },
-  {
-    id: 3,
-    name: 'ELENA RODRIGUEZ',
-    text: 'Moving our distributed training to VertexGrid was the best architectural decision we made this year. The automated node failover saved us multiple times.',
-    image: testimonial3
-  },
+{
+  id: 3,
+  name: 'Sophia Nguyen',
+  position: 'Head of MLOps',
+  text: 'The orchestration capabilities have dramatically reduced idle GPU time while improving model deployment speed. It\'s become a critical part of our AI operations.',
+  image: testimonial3
+},
   {
     id: 4,
-    name: 'TOM MEYER',
-    text: 'Freehand makes it a breeze to sketch, draw, wireframe, and get instant feedback on work-in-progress designs.',
+    name: 'Michael Turner',
+    position: 'Cloud Platform Architect',
+    text: 'VertexGrid simplified hybrid AI infrastructure management without forcing us to redesign existing cloud environments. Deployment was seamless and performance improvements were immediate.',
     image: testimonial4
   },
   {
     id: 5,
-    name: 'MARCUS WRIGHT',
-    text: 'Enterprise-grade security meets unparalleled ease of use. The SOC2 compliance and VPC peering meant we could deploy instantly with InfoSec approval.',
+    name: 'Oliver Bennett',
+    position: 'Chief Technology Officer',
+    text: 'As our AI initiatives expanded, VertexGrid gave us the scalability, visibility, and operational control needed to support enterprise growth with confidence.',
     image: testimonial5
   }
 ];
@@ -203,6 +208,9 @@ export default function Testimonial() {
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A] uppercase tracking-tight">
               {activeReview.name}
             </h3>
+            <p className="mt-1 text-xs font-mono font-semibold uppercase tracking-widest text-slate-400">
+              {activeReview.position}
+            </p>
             <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
               {activeReview.text}
             </p>
@@ -295,6 +303,9 @@ export default function Testimonial() {
                   <h3 className="text-2xl xl:text-4xl font-extrabold text-[#0F172A] uppercase tracking-tight leading-tight">
                     {activeReview.name}
                   </h3>
+                  <p className="mt-1 text-xs font-mono font-semibold uppercase tracking-widest text-slate-400">
+                    {activeReview.position}
+                  </p>
                   <p className="mt-6 text-slate-600 text-base xl:text-lg leading-relaxed max-w-lg">
                     {activeReview.text}
                   </p>

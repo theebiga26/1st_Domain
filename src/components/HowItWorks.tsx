@@ -19,30 +19,30 @@ export default function HowItWorks() {
   const steps: StepItem[] = [
     {
       id: 1,
-      title: 'Link Resources',
+      title: 'Connect Infrastructure',
       fullTitle: 'Link Cluster Resources',
-      description: 'Deploy our lightweight VertexDaemon onto your bare metal or existing cloud accounts. Within seconds, global GPU instances join your logical orchestration pool.',
+      description: 'Bring together GPU clusters, cloud providers, and enterprise AI resources.',
       icon: <img src={platform1} alt="link resources" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     },
     {
       id: 2,
-      title: 'Configure Workload',
+      title: 'Intelligent Orchestration',
       fullTitle: 'Configure Workload Profiles',
-      description: 'Upload your standard PyTorch training scripts or inference container tags. Select target parameters: epoch count, checkpoints frequency, failover sensitivity.',
+      description: 'Automatically schedule compute resources using workload-aware AI optimization.',
       icon: <img src={platform2} alt="configure workload" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     },
     {
       id: 3,
-      title: 'Schedule Allocation',
+      title: 'Distributed Processing',
       fullTitle: 'Intelligent Schedule Allocation',
-      description: 'Our proprietary scheduler splits and optimizes node allocations, mapping high-memory weights to the closest physical nodes to minimize network latency overhead.',
+      description: 'Execute model training and inference across multiple compute environments simultaneously.',
       icon: <img src={platform3} alt="schedule allocation" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     },
     {
       id: 4,
-      title: 'Run & Monitor',
+      title: 'Continuous Monitoring',
       fullTitle: 'Run, Monitor & Scale',
-      description: 'Watch training loss curves or active inference rates in real-time. If a physical node fails, our hot weight swap restores execution to a spare node instantly.',
+      description: 'Track infrastructure performance, GPU utilization, latency, and workload efficiency in real time.',
       icon: <img src={platform4} alt="run and monitor" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     }
   ];
@@ -76,7 +76,7 @@ export default function HowItWorks() {
             </span>
           </motion.div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0F172A] tracking-tight">
-            How VertexGrid Operates
+            AI Compute Workflow
           </h2>
           <p className="mt-4 text-black/60 text-base sm:text-lg">
             A continuous, secure loop from container compilation to model weights deployment.
@@ -126,11 +126,11 @@ export default function HowItWorks() {
                 className="bg-[#0F172A] border border-white/20 rounded-[1.5rem] p-6 xl:p-8 h-full min-h-[300px] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all relative z-10 flex flex-col"
               >
                 {/* Title */}
-                <h3 className="text-center font-black text-white uppercase tracking-wider text-sm lg:text-base mb-4 mt-2">
+                <h3 className="text-center font-black text-white uppercase tracking-wider text-lg lg:text-xl mb-4 mt-2">
                   {step.title}
                 </h3>
                 {/* Description */}
-                <p className="text-center text-blue-100/80 text-[11px] lg:text-xs font-medium leading-relaxed">
+                <p className="text-center text-blue-100/80 text-sm lg:text-base font-medium leading-relaxed">
                   {step.description}
                 </p>
 

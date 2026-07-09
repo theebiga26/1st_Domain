@@ -10,23 +10,23 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: 'What is VertexGrid?',
-    answer: 'VertexGrid is an enterprise AI compute platform that orchestrates decentralized bare-metal GPU resources, providing a unified virtual supercomputer for large-scale model training and inference.'
+    answer: 'VertexGrid is an enterprise AI compute platform that simplifies GPU orchestration, distributed model training, inference acceleration, and infrastructure management for organizations building AI-powered solutions'
   },
   {
-    question: 'How does the Fractional Virtual GPU Split work?',
-    answer: 'Our proprietary hypervisor slivers individual physical GPUs (like H100s or B200s) into dynamic logical partitions, providing isolated, microsecond-accurate computational slices to multiple container tasks without idle overhead.'
+    question: 'Who is the platform designed for?',
+    answer: 'VertexGrid supports AI research teams, machine learning engineers, MLOps professionals, cloud infrastructure teams, enterprise AI departments, and organizations operating large-scale AI workloads.'
   },
   {
-    question: 'What happens if a hardware node fails during training?',
-    answer: 'Our Zero-Downtime Weight Hot Swap technology automatically detects hardware deterioration and seamlessly shifts distributed model states to spare nodes in under 2.5 seconds, ensuring uninterrupted epoch generation.'
+    question: 'Does VertexGrid replace existing cloud providers?',
+    answer: 'No. VertexGrid works alongside your existing infrastructure by orchestrating resources across public cloud, private cloud, hybrid environments, Kubernetes clusters, and edge computing systems.'
   },
   {
-    question: 'Can VertexGrid support complex enterprise deployments?',
-    answer: 'Yes. We natively support isolated sandboxes and complex healthcare/biotech pipelines. Our infrastructure is SOC2 Type II certified and HIPAA & GDPR ready.'
+    question: 'Can VertexGrid support complex enterprise deployments?Can VertexGrid scale with growing AI workloads?',
+    answer: 'Yes. The platform is designed to support everything from experimental machine learning projects to enterprise AI deployments running across distributed GPU clusters.'
   },
   {
-    question: 'How does it compare to traditional hyperscalers (AWS/GCP)?',
-    answer: 'Unlike traditional VMs that suffer from virtualization latency and egress lock-in, VertexGrid provides direct bare-metal access with <15ms latency, zero internal egress fees, and dynamic rebalancing that pushes average GPU utilization up to 85%-95%.'
+    question: 'How does VertexGrid improve compute efficiency?',
+    answer: 'The platform continuously analyzes infrastructure utilization, intelligently schedules workloads, balances GPU resources, and optimizes compute allocation to maximize performance while reducing operational costs.'
   }
 ];
 

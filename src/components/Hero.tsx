@@ -334,9 +334,8 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-5xl sm:text-6xl lg:text-[76px] font-bold text-white tracking-tight leading-[1.1]"
             >
-              Enterprise AI <br />
-              Compute Infrastructure <br />
-              <span className="text-[#3b82f6]">Built for Scale.</span>
+              Enterprise AI Compute Without Infrastructure Complexity <br />
+              {/* <span className="text-[#3b82f6]">Built for Scale.</span> */}
             </motion.h1>
 
             {/* Subheading */}
@@ -346,7 +345,10 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-6 text-[17px] text-slate-300/90 leading-relaxed max-w-lg font-normal"
             >
-              VertexGrid orchestrates GPU resources, distributed training, and AI inference at any scale—across cloud, edge, and on-premise infrastructure.
+
+Power the next generation of artificial intelligence with an intelligent compute platform built for distributed GPU orchestration, accelerated model training, and enterprise-scale AI execution. <br/>
+VertexGrid.one transforms fragmented compute resources into a unified AI infrastructure, enabling organizations to train, deploy, and scale machine learning workloads with greater efficiency, performance, and control.
+
             </motion.p>
 
             {/* CTA Buttons */}
@@ -362,12 +364,12 @@ export default function Hero() {
               >
                 Request Demo <span className="text-xl leading-none -mt-1">›</span>
               </a>
-              <a
+              {/* <a
                 href="#architecture"
                 className="px-8 py-3.5 border border-[#334155] text-white font-medium rounded-[8px] text-center hover:bg-white/5 transition-all flex items-center justify-center gap-2 text-[15px]"
               >
                 Explore Platform <span className="text-xl leading-none -mt-1">›</span>
-              </a>
+              </a> */}
             </motion.div>
 
             {/* Stats Row */}

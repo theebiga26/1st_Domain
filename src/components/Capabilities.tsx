@@ -18,41 +18,41 @@ interface Capability {
 const list: Capability[] = [
   {
     icon: <img src={coreCap1} alt="Decentralized GPU Pooling" className="h-8 w-auto object-contain" />,
-    title: 'Decentralized GPU Pooling',
-    description: 'Aggregate massive, multi-region GPU clusters (NVIDIA H100, H200, B200) into a single unified virtual supercomputer with zero layout overhead.',
+    title: 'Intelligent Compute Orchestration',
+    description: 'Automatically schedule AI workloads based on resource availability, workload priority, and infrastructure performance to maximize efficiency.',
     badge: 'High Availability',
     image: coreCap1,
   },
   {
-    icon: <img src={coreCap2} alt="Adaptive Priority Scheduling" className="h-8 w-auto object-contain" />,
-    title: 'Adaptive Priority Scheduling',
-    description: 'Our proprietary micro-scheduler allocates computational cycles dynamically based on training loss curves, reducing idle run times by up to 34%.',
+    icon: <img src={coreCap3} alt="Adaptive Priority Scheduling" className="h-8 w-auto object-contain" />,
+    title: 'Distributed Model Training',
+    description: 'Run large-scale machine learning workloads across multiple GPU clusters with optimized parallel processing and intelligent scaling.',
     badge: 'Live Auto-Scheduler',
     image: coreCap2,
   },
   {
-    icon: <img src={coreCap3} alt="Fractional Virtual GPU Split" className="h-8 w-auto object-contain" />,
-    title: 'Fractional Virtual GPU Split',
-    description: 'Sliver individual physical GPUs into dynamic logical partitions, providing isolated, microsecond-accurate slices to multiple container tasks.',
+    icon: <img src={coreCap2} alt="Fractional Virtual GPU Split" className="h-8 w-auto object-contain" />,
+    title: 'GPU Resource Management',
+    description: 'Gain complete visibility into GPU utilization, cluster availability, and compute efficiency with real-time monitoring and automated balancing.',
     image: coreCap3,
   },
   {
     icon: <img src={coreCap4} alt="Zero-Downtime Weight Hot Swap" className="h-8 w-auto object-contain" />,
-    title: 'Zero-Downtime Weight Hot Swap',
-    description: 'Seamlessly shift distributed model states across nodes in the event of hardware deterioration, ensuring uninterrupted epoch generation.',
+    title: 'AI Inference Acceleration',
+    description: 'Deliver production AI faster by routing inference requests through the most efficient compute resources while minimizing latency.',
     badge: 'Fail-Safe',
     image: coreCap4,
   },
   {
     icon: <img src={coreCap5} alt="Native Multi-Cloud Connect" className="h-8 w-auto object-contain" />,
-    title: 'Native Multi-Cloud Connect',
-    description: 'Connect existing AWS, Azure, Google Cloud pipelines with premium high-bandwidth fiber backbones directly into bare-metal cluster instances.',
+    title: 'Workload Optimization Engine',
+    description: 'Analyze compute demand continuously and dynamically rebalance workloads for higher throughput and lower infrastructure costs.',
     image: coreCap5,
   },
   {
     icon: <img src={coreCap6} alt="Intelligent Warm Pool Buffering" className="h-8 w-auto object-contain" />,
-    title: 'Intelligent Warm Pool Buffering',
-    description: 'Maintain low-cost, lightning-fast pre-warmed container environments to execute training epochs instantaneously upon resource allocation.',
+    title: 'Infrastructure Health Monitoring',
+    description: 'Track node status, system availability, compute performance, and operational metrics through a centralized command center.',
     image: coreCap6,
   },
 ];
@@ -180,7 +180,7 @@ export default function Capabilities() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight"
           >
-            The Ultimate Infrastructure <br />for Large-Scale AI
+            Where AI Performance Accelerates
           </motion.h2>
 
           <motion.p

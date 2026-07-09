@@ -175,22 +175,17 @@ export default function ContactUs() {
               <div className="space-y-8">
               <div className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 shrink-0 mt-0.5 text-slate-400" />
-                <p className="text-sm font-medium text-slate-200">32, Avenue ve Newyork<br/>321994 Newyork</p>
-              </div>
-              
-              <div className="flex items-center gap-4">
-                <Mail className="w-5 h-5 shrink-0 text-slate-400" />
-                <p className="text-sm font-medium text-slate-200">hello@loremipsum.com</p>
+                <p className="text-sm font-medium text-slate-200">822 E. 20th Street<br/>Los Angeles CA 90011</p>
               </div>
               
               <div className="flex items-center gap-4">
                 <Phone className="w-5 h-5 shrink-0 text-slate-400" />
-                <p className="text-sm font-medium text-slate-200">+3356 1589 2105</p>
+                <p className="text-sm font-medium text-slate-200">+1 (310) 569930</p>
               </div>
 
               <div className="flex items-center gap-4">
-                <Printer className="w-5 h-5 shrink-0 text-slate-400" />
-                <p className="text-sm font-medium text-slate-200">+3356 1589 2100</p>
+                <Mail className="w-5 h-5 shrink-0 text-slate-400" />
+                <p className="text-sm font-medium text-slate-200">VertexGrid.one</p>
               </div>
             </div>
 

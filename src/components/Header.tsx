@@ -137,13 +137,12 @@ export default function Header() {
               </div>
               
               <div className="pt-4 flex flex-col gap-2.5 border-t border-slate-100 mt-4">
-              
                 <a
-                  href="#cta"
+                  href="#product"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full text-center py-3 px-4 bg-brand-secondary-blue text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm hover:bg-brand-primary-blue"
+                  className="w-full text-center py-3 px-4 bg-[#1E3A8A] text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm hover:bg-blue-800"
                 >
-                  Request Enterprise Demo <ArrowRight className="w-4 h-4" />
+                  Product page
                 </a>
               </div>
             </div>

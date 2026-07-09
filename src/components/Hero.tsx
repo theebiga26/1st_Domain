@@ -291,6 +291,7 @@ export default function Hero() {
         playsInline
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{ objectPosition: 'center 40%' }}
       >
         <track kind="captions" srcLang="en" label="English" />
       </video>

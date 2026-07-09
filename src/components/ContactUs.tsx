@@ -310,7 +310,7 @@ export default function ContactUs() {
                 <button
                   type="submit"
                   disabled={status === 'submitting' || !isFormspreeConfigured}
-                  className="bg-[#0F172A] text-white px-10 py-3.5 rounded-full text-sm font-semibold hover:bg-[#0F172A]/90 transition-all shadow-lg shadow-[#0F172A]/30 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="bg-[#0F172A] text-white px-10 py-3.5 rounded-full text-sm font-semibold hover:bg-slate-900 transition-all shadow-lg shadow-slate-900/30 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {status === 'submitting' ? 'SENDING...' : 'SEND'}
                 </button>

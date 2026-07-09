@@ -346,7 +346,6 @@ export default function Hero() {
               className="mt-6 text-[17px] text-slate-300/90 leading-relaxed max-w-lg font-normal"
             >
 
-Power the next generation of artificial intelligence with an intelligent compute platform built for distributed GPU orchestration, accelerated model training, and enterprise-scale AI execution. <br/>
 VertexGrid.one transforms fragmented compute resources into a unified AI infrastructure, enabling organizations to train, deploy, and scale machine learning workloads with greater efficiency, performance, and control.
 
             </motion.p>

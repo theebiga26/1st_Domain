@@ -13,18 +13,39 @@ export default function Header() {
       setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-     const observer = new IntersectionObserver((entries) => {
+    
+    const observer = new IntersectionObserver((entries) => {
        const visible = entries.filter((entry) => entry.isIntersecting);
        if (visible.length === 0) return;
        // Sort by vertical position to pick the section nearest to the top
        visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
        setActiveSection('#' + visible[0].target.id);
      }, { root: null, threshold: 0.3 });
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach((sec) => observer.observe(sec));
+
+    // Observe existing sections
+    const observeSections = () => {
+      const sections = document.querySelectorAll('section[id]');
+      sections.forEach((sec) => {
+        observer.observe(sec);
+      });
+    };
+
+    observeSections();
+
+    // Use MutationObserver to detect when new sections are added (for lazy-loaded components)
+    const mutationObserver = new MutationObserver(() => {
+      observeSections();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       observer.disconnect();
+      mutationObserver.disconnect();
     };
   }, []);
 
@@ -79,7 +100,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`nav-link text-slate-600 hover:text-brand-primary-blue hover:bg-slate-50 rounded-full px-3 py-1.5 transition-colors ${item.sections?.includes(activeSection) ? 'nav-active font-semibold text-brand-primary-blue' : ''}`}
+                  className={`nav-link text-slate-600 hover:text-brand-primary-blue hover:bg-slate-50 rounded-full px-3 py-1.5 transition-all relative ${item.sections?.includes(activeSection) ? 'nav-active font-semibold text-brand-primary-blue after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-gradient-to-r after:from-brand-primary-blue after:to-cyan-400 after:rounded-full' : ''}`}
                 >
                   {item.name}
                 </a>
@@ -90,7 +111,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-3">
             <a
               href="#product"
-              className={`text-sm font-semibold px-5 py-2.5 rounded-full flex items-center gap-1.5 transition-all duration-300 bg-[#1E3A8A] text-white hover:bg-blue-800`}
+              className={`text-sm font-semibold px-5 py-2.5 rounded-full flex items-center gap-1.5 transition-all duration-300 bg-[#0F172A] text-white hover:bg-[#0F172A]/90`}
             >
               Product page
             </a>
@@ -129,7 +150,7 @@ export default function Header() {
                       key={item.name}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href, true)}
-                      className={`block py-2 text-[15px] font-medium text-slate-600 hover:text-brand-primary-blue transition-colors ${item.sections?.includes(activeSection) ? 'text-brand-primary-blue' : ''}`}
+                      className={`block py-2 text-[15px] font-medium text-slate-600 hover:text-brand-primary-blue transition-all relative pl-3 ${item.sections?.includes(activeSection) ? 'text-brand-primary-blue font-semibold before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-6 before:bg-gradient-to-b before:from-brand-primary-blue before:to-cyan-400 before:rounded-full' : ''}`}
                     >
                       {item.name}
                     </a>
@@ -140,7 +161,7 @@ export default function Header() {
                 <a
                   href="#product"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full text-center py-3 px-4 bg-[#1E3A8A] text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm hover:bg-blue-800"
+                  className="w-full text-center py-3 px-4 bg-[#0F172A] text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm hover:bg-[#0F172A]/90"
                 >
                   Product page
                 </a>

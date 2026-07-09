@@ -38,7 +38,7 @@ export default function PartnerBanner() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <div className="w-full bg-[#0B1120] border-y border-white/5 py-6 overflow-hidden relative z-20 flex">
+    <div className="w-full bg-[#0B1120] border-y border-white/5 py-6 overflow-hidden relative z-20 flex mt-4 sm:mt-6 lg:mt-8">
       
       {/* Label fixed on the left */}
       <div className="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#0B1120] via-[#0B1120] to-transparent w-48 z-10 flex items-center pl-4 sm:pl-8">

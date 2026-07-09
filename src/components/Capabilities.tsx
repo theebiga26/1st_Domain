@@ -257,7 +257,7 @@ export default function Capabilities() {
                 <div 
                   key={idx}
                   onClick={() => handleDotClick(idx)}
-                  className="snap-center relative h-[280px] sm:h-[360px] w-[85%] sm:w-[400px] shrink-0 cursor-pointer overflow-hidden rounded-[2rem] bg-slate-800 shadow-2xl transition-transform duration-500"
+                  className="snap-center relative h-[280px] sm:h-[360px] w-[85%] sm:w-[400px] shrink-0 cursor-pointer overflow-hidden rounded-[2rem] bg-slate-800 shadow-2xl transition-transform duration-500 border border-white"
                   style={{
                     transform: activeIndex === idx ? 'scale(1)' : 'scale(0.95)',
                   }}

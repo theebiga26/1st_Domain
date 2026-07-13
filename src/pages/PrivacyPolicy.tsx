@@ -224,7 +224,7 @@ export default function PrivacyPolicy() {
               <p>By email: support@vertexgrid.one</p>
             </li>
             <li>
-              <p>By phone: + 1 (310) 569930</p>
+              <p>By phone: +13236723611</p>
             </li>
           </ul>
         </div>

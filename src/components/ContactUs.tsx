@@ -180,7 +180,7 @@ export default function ContactUs() {
               
               <div className="flex items-center gap-4">
                 <Phone className="w-5 h-5 shrink-0 text-slate-400" />
-                <p className="text-sm font-medium text-slate-200">+1 (310) 569930</p>
+                <p className="text-sm font-medium text-slate-200">+13236723611</p>
               </div>
 
               <div className="flex items-center gap-4">

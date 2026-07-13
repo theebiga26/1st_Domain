@@ -1,9 +1,9 @@
 import { motion } from 'motion/react';
-import nvidiaLogo from '../assets/logos/powered by icon_1.svg';
-import awsLogo from '../assets/logos/powered by icon_2.svg';
-import azureLogo from '../assets/logos/powered by icon_3.svg';
-import googleCloudLogo from '../assets/logos/powered by icon_4.svg';
-import kubernetesLogo from '../assets/logos/powered by icon_5.svg';
+import nvidiaLogo from '../assets/logos/powered by icon_1.webp';
+import awsLogo from '../assets/logos/powered by icon_2.webp';
+import azureLogo from '../assets/logos/powered by icon_3.webp';
+import googleCloudLogo from '../assets/logos/powered by icon_4.webp';
+import kubernetesLogo from '../assets/logos/powered by icon_5.webp';
 
 export default function PartnerBanner() {
   const partners = [

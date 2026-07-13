@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import testimonial1 from '../assets/logos/testimonial_1.svg';
-import testimonial2 from '../assets/logos/testimonial_2.svg';
-import testimonial3 from '../assets/logos/testimonial_3.svg';
-import testimonial4 from '../assets/logos/testimonial_4.svg';
-import testimonial5 from '../assets/logos/testimonial_5.svg';
+import testimonial1 from '../assets/logos/testimonial_1.webp';
+import testimonial2 from '../assets/logos/testimonial_2.webp';
+import testimonial3 from '../assets/logos/testimonial_3.webp';
+import testimonial4 from '../assets/logos/testimonial_4.webp';
+import testimonial5 from '../assets/logos/testimonial_5.webp';
 
 const reviews = [
   {

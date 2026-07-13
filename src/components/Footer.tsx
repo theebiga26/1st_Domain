@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoUrl from '../assets/logos/logo.svg';
+import logoUrl from '../assets/logos/logo.webp';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -55,7 +55,7 @@ export default function Footer() {
             <Link to="/#hero" className="inline-flex items-center gap-3" aria-label="VertexGrid Home">
               <img src={logoUrl} alt="VertexGrid" width="160" height="40" className="w-40 h-auto" />
             </Link>
-            <p className="text-sm text-white/60 max-w-sm leading-relaxed">
+            <p className="text-sm text-slate-300 max-w-sm leading-relaxed">
               Intelligent generative content formatting network with zero operational delay.
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function Footer() {
               <h4 className="text-xs uppercase tracking-[0.3em] text-white/70 font-semibold mb-4">
                 Quick Links
               </h4>
-              <ul className="space-y-3 text-sm text-white/60">
+              <ul className="space-y-3 text-sm text-slate-300">
                 {links.quickLinks.map((item) => (
                   <li key={item.name}>
                     <a href={item.href} className="hover:text-white transition-colors">
@@ -79,7 +79,7 @@ export default function Footer() {
               <h4 className="text-xs uppercase tracking-[0.3em] text-white/70 font-semibold mb-4">
                 Legal
               </h4>
-              <ul className="space-y-3 text-sm text-white/60">
+              <ul className="space-y-3 text-sm text-slate-300">
                 {links.legal.map((item) => (
                   <li key={item.name}>
                     <Link to={item.href} className="hover:text-white transition-colors">
@@ -96,7 +96,7 @@ export default function Footer() {
               <h4 className="text-xs uppercase tracking-[0.3em] text-white/70 font-semibold mb-4">
                 System Outflows
               </h4>
-              <p className="text-sm text-white/60 leading-relaxed max-w-md mx-auto sm:mx-0">
+              <p className="text-sm text-slate-300 leading-relaxed max-w-md mx-auto sm:mx-0">
                 Subscribe to standard newsletters to receive structural algorithm updates.
               </p>
             </div>
@@ -127,12 +127,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-sm text-white/50 text-center sm:text-left">
+        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-sm text-slate-400 text-center sm:text-left">
           <span>© {new Date().getFullYear()} VertexGrid. All rights reserved.</span>
           <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-end gap-3 sm:gap-4">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
-            <Link to="/cookies" className="hover:text-white transition-colors">Cookies Policy</Link>
+            <Link to="/privacy" className="hover:text-white transition-colors" aria-label="Footer Privacy Policy">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors" aria-label="Footer Terms & Conditions">Terms & Conditions</Link>
+            <Link to="/cookies" className="hover:text-white transition-colors" aria-label="Footer Cookies Policy">Cookies Policy</Link>
           </div>
         </div>
       </div>

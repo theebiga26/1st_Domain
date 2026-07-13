@@ -1,8 +1,8 @@
 import { motion } from 'motion/react';
 import { Play } from 'lucide-react';
-import aboutCenter from '../assets/logos/about us_1.svg';
-import aboutTop from '../assets/logos/about us_2.svg';
-import aboutBottom from '../assets/logos/about us_3.svg';
+import aboutCenter from '../assets/logos/about us_1.webp';
+import aboutTop from '../assets/logos/about us_2.webp';
+import aboutBottom from '../assets/logos/about us_3.webp';
 
 export default function About() {
   return (

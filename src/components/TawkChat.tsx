@@ -27,7 +27,7 @@ export default function TawkChat({ chatEnabled }: TawkChatProps) {
     const s1 = document.createElement('script');
     const s0 = document.getElementsByTagName('script')[0];
     s1.async = true;
-    s1.src = 'https://embed.tawk.to/6a4e0d914d8ff71d4502b4dc/1jt0ea06l';
+    s1.src = 'https://embed.tawk.to/6a54abc18ba18a1d4a7d8159/1jtdbtro8';
     s1.charset = 'UTF-8';
     s1.setAttribute('crossorigin', '*');
     s1.id = 'tawk-script';

@@ -69,8 +69,8 @@ export default function CookieBanner({ onConsent }: { onConsent: (c: CookieConse
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[9999] px-4 pb-4 sm:px-6 sm:pb-6 animate-slide-up">
-      <div className="max-w-4xl mx-auto bg-[#0F172A] text-white rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+    <div className="fixed bottom-4 left-4 z-[9999] w-full max-w-[380px] animate-slide-up">
+      <div className="bg-[#0F172A] text-white rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
         
         {/* Main Banner */}
         <div className="p-5 sm:p-6">

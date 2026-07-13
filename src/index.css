@@ -39,11 +39,13 @@ body {
   font-display: swap;
   src: local('Inter');
 }
+
 @font-face {
   font-family: 'Plus Jakarta Sans';
   font-display: swap;
   src: local('Plus Jakarta Sans');
 }
+
 @font-face {
   font-family: 'JetBrains Mono';
   font-display: swap;
@@ -60,48 +62,85 @@ body {
 
 /* Animation utility classes */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
+
 @keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
+
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .fade-in {
   animation: fadeIn 0.8s ease-out forwards;
 }
+
 .slide-up {
   animation: slide-up 0.8s ease-out forwards;
 }
 
 @keyframes slide-up-banner {
-  from { transform: translateY(100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
+
 .animate-slide-up {
   animation: slide-up-banner 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
 .pulse {
   animation: pulse 2s infinite;
 }
+
 /* Header navigation active link styles */
 .nav-link {
-  padding: 0.875rem 0.875rem; /* matches px-3.5 py-2 */
-  font-size: 0.875rem; /* text-sm */
+  padding: 0.875rem 0.875rem;
+  /* matches px-3.5 py-2 */
+  font-size: 0.875rem;
+  /* text-sm */
   font-weight: 500;
-  border-radius: 0.5rem; /* rounded-lg */
+  border-radius: 0.5rem;
+  /* rounded-lg */
   transition: all 0.2s ease;
 }
+
 .nav-active {
   color: var(--color-brand-primary-blue);
   font-weight: 600;
   position: relative;
 }
+
 .nav-active::after {
   content: "";
   position: absolute;
@@ -113,20 +152,33 @@ body {
   border-radius: 1px;
   animation: underlineSlide 0.3s forwards;
 }
+
 @keyframes underlineSlide {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 
 /* Continuous marquee animation for partner logos */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
+
 .marquee {
   animation: marquee 28s linear infinite;
   will-change: transform;
-  transform: translateZ(0); /* force GPU composite layer */
+  transform: translateZ(0);
+  /* force GPU composite layer */
 }
 
 /* Performance: reduce paint area for off-screen sections */
@@ -137,6 +189,7 @@ body {
 
 /* Respect user's reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -145,7 +198,105 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
   .marquee {
     animation: none;
   }
 }
+
+/* =========================================
+   3D ANIMATION UTILITIES — GPU-Accelerated
+   ========================================= */
+
+/* Float in 3D Z-axis — gentle bob with depth */
+@keyframes float3d {
+  0%   { transform: translateZ(0px)  translateY(0px)   rotate(0deg); }
+  33%  { transform: translateZ(20px) translateY(-12px) rotate(1deg); }
+  66%  { transform: translateZ(8px)  translateY(-6px)  rotate(-0.5deg); }
+  100% { transform: translateZ(0px)  translateY(0px)   rotate(0deg); }
+}
+
+/* Depth pulse — scale + opacity breathing */
+@keyframes depthPulse {
+  0%, 100% { transform: translateZ(0)   scale(1);   opacity: 0.5; }
+  50%       { transform: translateZ(30px) scale(1.1); opacity: 1;   }
+}
+
+/* Shimmer sweep for 3D card hover */
+@keyframes shimmer3d {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%)  skewX(-15deg); }
+}
+
+/* ---- Utility Classes ---- */
+
+/* Perspective wrapper — parent of any 3D-rotating element */
+.card-3d-wrapper {
+  perspective: 1000px;
+  perspective-origin: center center;
+}
+
+/* Inner rotating surface */
+.card-3d {
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* GPU-composited tilt transition — no layout repaint */
+.tilt-hover {
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.2s ease;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Floating decorative particles */
+.particle-3d {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+  pointer-events: none;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Section depth container */
+.section-3d {
+  transform-style: preserve-3d;
+  contain: layout style paint;
+}
+
+/* Shimmer overlay — applied on hover via ::after */
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.card-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.07) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  pointer-events: none;
+}
+.card-shimmer:hover::after {
+  animation: shimmer3d 0.55s ease forwards;
+}
+
+/* Honour reduced-motion for all new 3D classes */
+@media (prefers-reduced-motion: reduce) {
+  .particle-3d,
+  .card-3d,
+  .tilt-hover,
+  .card-shimmer::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { Box, Server, Activity, Cpu } from 'lucide-react';
 import heroVideo from '../assets/logos/hero_video.mp4';
@@ -10,6 +10,41 @@ import heroIcon4 from '../assets/logos/hero icon_4.svg';
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const tiltRef = useRef<HTMLDivElement>(null);
+
+  // 3D Particle data — generated once, stable across renders
+  const particles = useRef(
+    Array.from({ length: 22 }, (_, i) => ({
+      id: i,
+      size: 3 + Math.random() * 5,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: `${6 + Math.random() * 10}s`,
+      delay: `${Math.random() * -10}s`,
+      opacity: 0.15 + Math.random() * 0.25,
+      color: Math.random() > 0.5 ? '#38bdf8' : '#818cf8',
+    }))
+  ).current;
+
+  // Mouse-tilt handler — GPU composited, no layout repaint
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
+    const el = tiltRef.current;
+    if (!el) return;
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) / (rect.width / 2);
+    const dy = (e.clientY - cy) / (rect.height / 2);
+    el.style.transform = `perspective(1200px) rotateX(${-dy * 3}deg) rotateY(${dx * 4}deg) translateZ(0)`;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    const el = tiltRef.current;
+    if (!el) return;
+    el.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
+    el.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+    setTimeout(() => { if (el) el.style.transition = ''; }, 620);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;

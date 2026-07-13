@@ -189,34 +189,7 @@ export default function ContactUs() {
               </div>
             </div>
 
-            <div className="mt-10">
-              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Follow Us</p>
-              <div className="flex items-center gap-3 flex-wrap">
-                
-                {/* LinkedIn */}
-                <a href="#" aria-label="LinkedIn" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#0A66C2]/30 hover:border-[#0A66C2]/50 transition-all">
-                  <Linkedin className="w-4 h-4" />
-                </a>
 
-                {/* Facebook */}
-                <a href="https://www.facebook.com/VertexGridLLC/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#1877F2]/30 hover:border-[#1877F2]/50 transition-all">
-                  <Facebook className="w-4 h-4" />
-                </a>
-
-                {/* YouTube */}
-                <a href="https://www.youtube.com/@VertexGridLLC" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-[#FF0000]/20 hover:border-[#FF0000]/40 transition-all">
-                  <Youtube className="w-4 h-4" />
-                </a>
-
-                {/* Twitter / X */}
-                <a href="https://x.com/VertexGridus" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all">
-                  <Twitter className="w-4 h-4" />
-                </a>
-
-               
-
-              </div>
-            </div>
           </div>
         </div>
 

@@ -22,33 +22,33 @@ export default function HowItWorks() {
       title: 'Connect Infrastructure',
       fullTitle: 'Link Cluster Resources',
       description: 'Bring together GPU clusters, cloud providers, and enterprise AI resources.',
-      icon: <img src={platform1} alt="link resources" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
+      icon: <img src={platform1} alt="link resources" className="w-12 h-12 lg:w-14 lg:h-14 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     },
     {
       id: 2,
       title: 'Intelligent Orchestration',
       fullTitle: 'Configure Workload Profiles',
       description: 'Automatically schedule compute resources using workload-aware AI optimization.',
-      icon: <img src={platform2} alt="configure workload" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
+      icon: <img src={platform2} alt="configure workload" className="w-12 h-12 lg:w-14 lg:h-14 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     },
     {
       id: 3,
       title: 'Distributed Processing',
       fullTitle: 'Intelligent Schedule Allocation',
       description: 'Execute model training and inference across multiple compute environments simultaneously.',
-      icon: <img src={platform3} alt="schedule allocation" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
+      icon: <img src={platform3} alt="schedule allocation" className="w-12 h-12 lg:w-14 lg:h-14 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     },
     {
       id: 4,
       title: 'Continuous Monitoring',
       fullTitle: 'Run, Monitor & Scale',
       description: 'Track infrastructure performance, GPU utilization, latency, and workload efficiency in real time.',
-      icon: <img src={platform4} alt="run and monitor" className="w-14 h-14 lg:w-16 lg:h-16 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
+      icon: <img src={platform4} alt="run and monitor" className="w-12 h-12 lg:w-14 lg:h-14 object-contain" style={{ filter: 'brightness(0) invert(1)' }} />
     }
   ];
 
   return (
-    <section id="how-it-works" className="pt-12 pb-8 sm:pt-16 sm:pb-12 bg-[#F8FAFC] relative overflow-hidden">
+    <section id="how-it-works" className="pt-12 pb-8 sm:pt-16 sm:pb-24 bg-[#F8FAFC] relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <ShapeGrid 
           speed={0.5} 
@@ -63,14 +63,14 @@ export default function HowItWorks() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200 mb-4 shadow-sm"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-[#1E3A8A]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#3b82f6]" />
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-black">
               Orchestration Lifecycle
             </span>
@@ -84,65 +84,51 @@ export default function HowItWorks() {
         </div>
 
         {/* Infographic Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 w-full relative pt-12 pb-12 gap-y-12 lg:gap-y-0">
-          {steps.map((step) => (
-            <div key={step.id} className="relative p-0 lg:p-6 xl:p-8">
-
-              {/* Decorative Lines (hidden on mobile for exact spacing) */}
-              {/* Dot on the left */}
-              <div className="hidden lg:block absolute top-1/2 left-0 w-[14px] h-[14px] rounded-full border-[3px] border-[#0F172A] bg-white -translate-y-1/2 -translate-x-1/2 z-20" />
-
-              {/* Dot on the right for the last item */}
-              {step.id === 4 && (
-                <div className="hidden lg:block absolute top-1/2 right-0 w-[14px] h-[14px] rounded-full border-[3px] border-[#0F172A] bg-white -translate-y-1/2 translate-x-1/2 z-20" />
+        <div className="grid grid-cols-1 lg:grid-cols-4 relative gap-y-12 lg:gap-y-0 lg:gap-x-6 items-center">
+          {/* Continuous Line Behind Cards (Desktop Only) */}
+          <div className="hidden lg:block absolute top-1/2 left-[10%] right-[10%] h-[2px] bg-[#0F172A] -translate-y-1/2 z-0" />
+          
+          {steps.map((step, index) => (
+            <div key={step.id} className="relative h-full">
+              {/* Connector dots between cards */}
+              {index !== 0 && (
+                <div className="hidden lg:block absolute top-1/2 left-[-1.5rem] w-3 h-3 rounded-full border-2 border-[#0F172A] bg-white -translate-y-1/2 -translate-x-1/2 z-20" />
+              )}
+              {/* Extra dot at the very beginning and very end, optional based on image but adds symmetry */}
+              {index === 0 && (
+                <div className="hidden lg:block absolute top-1/2 left-0 w-3 h-3 rounded-full border-2 border-[#0F172A] bg-white -translate-y-1/2 -translate-x-1/2 z-20" />
+              )}
+              {index === steps.length - 1 && (
+                <div className="hidden lg:block absolute top-1/2 right-0 w-3 h-3 rounded-full border-2 border-[#0F172A] bg-white -translate-y-1/2 translate-x-1/2 z-20" />
               )}
 
-              {/* Bottom Path */}
-              <div className="hidden lg:block absolute top-1/2 left-0 w-[45%] h-[calc(50%-1.5rem)] border-l-[3px] border-b-[3px] border-[#0F172A] rounded-bl-[1.5rem] z-0" />
-              <motion.div 
-                animate={{ x: [-15, 15], opacity: [0, 1, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                className="hidden lg:block absolute bottom-[0.95rem] left-[calc(45%+0.2rem)] text-[#0F172A] font-black text-xs tracking-tighter"
-              >
-                &gt;&gt;
-              </motion.div>
-
-              {/* Top Path */}
-              <div className="hidden lg:block absolute top-2 left-[25%] right-0 h-[calc(50%-1rem)] border-t-[3px] border-r-[3px] border-[#0F172A] rounded-tr-[1.5rem] z-0" />
-              <motion.div 
-                animate={{ x: [15, -15], opacity: [0, 1, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                className="hidden lg:block absolute top-[0.05rem] left-[calc(25%-1.2rem)] text-[#0F172A] font-black text-xs tracking-tighter"
-              >
-                &lt;&lt;
-              </motion.div>
-
-              {/* The Yellow Card */}
+              {/* The Dark Blue Card */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: step.id * 0.1 }}
-                className="bg-[#0F172A] border border-white/20 rounded-[1.5rem] p-6 xl:p-8 h-full min-h-[300px] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all relative z-10 flex flex-col"
+                className="bg-[#0F172A] rounded-[24px] p-8 xl:p-10 h-full min-h-[340px] shadow-xl relative z-10 flex flex-col transition-transform hover:-translate-y-2 duration-300 group overflow-hidden"
               >
                 {/* Title */}
-                <h3 className="text-center font-black text-white uppercase tracking-wider text-lg lg:text-xl mb-4 mt-2">
+                <h3 className="font-bold text-white uppercase tracking-wider text-[15px] leading-tight mb-4 text-center">
                   {step.title}
                 </h3>
+                
                 {/* Description */}
-                <p className="text-center text-blue-100/80 text-sm lg:text-base font-medium leading-relaxed">
+                <p className="text-[#94A3B8] text-[14px] leading-relaxed text-center mb-8">
                   {step.description}
                 </p>
 
-                <div className="mt-auto pt-10 flex items-end justify-between relative z-10">
-                  {/* Icon (enhanced logo, no boxed background) */}
-                  <div className="p-0 transition-transform transform hover:scale-105 drop-shadow-md">
+                <div className="mt-auto pt-4 flex items-end justify-between relative z-20">
+                  {/* Icon */}
+                  <div className="transition-transform transform group-hover:scale-110 duration-300">
                     {step.icon}
                   </div>
                 </div>
 
                 {/* Giant Number */}
-                <div className="absolute bottom-1 right-2 lg:right-3 text-[100px] lg:text-[110px] font-black text-white/10 leading-none tracking-tighter select-none pointer-events-none">
+                <div className="absolute bottom-2 right-4 text-[90px] xl:text-[110px] font-black text-white/5 leading-none tracking-tighter select-none pointer-events-none group-hover:text-white/10 transition-colors duration-300">
                   0{step.id}
                 </div>
               </motion.div>

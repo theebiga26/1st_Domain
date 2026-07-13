@@ -250,14 +250,14 @@ export default function Capabilities() {
           <div className="w-full lg:w-[55%] relative">
             <div 
               ref={scrollContainerRef}
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 pt-4 -mx-4 px-4 sm:mx-0 sm:px-0"
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 pt-4 -mx-4 px-4 sm:mx-0 sm:px-0 card-3d-wrapper"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {list.map((item, idx) => (
                 <div 
                   key={idx}
                   onClick={() => handleDotClick(idx)}
-                  className="snap-center relative h-[280px] sm:h-[360px] w-[85%] sm:w-[400px] shrink-0 cursor-pointer overflow-hidden rounded-[2rem] bg-slate-800 shadow-2xl transition-transform duration-500 border border-white"
+                  className="snap-center relative h-[280px] sm:h-[360px] w-[85%] sm:w-[400px] shrink-0 cursor-pointer overflow-hidden rounded-[2rem] bg-slate-800 shadow-2xl transition-transform duration-500 border border-white card-3d tilt-hover card-shimmer"
                   style={{
                     transform: activeIndex === idx ? 'scale(1)' : 'scale(0.95)',
                   }}

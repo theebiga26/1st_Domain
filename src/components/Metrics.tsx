@@ -146,11 +146,11 @@ export default function Metrics() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="relative group h-[280px] w-full flex flex-col"
+                className="relative group h-[280px] w-full flex flex-col card-3d-wrapper"
               >
                 {/* The main border shape containing the animated gradient */}
                 <div 
-                  className="relative p-[2px] w-full h-full transition-transform duration-500 group-hover:-translate-y-2 overflow-hidden flex-1 drop-shadow-sm group-hover:drop-shadow-xl"
+                  className="relative p-[2px] w-full h-full transition-transform duration-500 overflow-hidden flex-1 drop-shadow-sm group-hover:drop-shadow-xl card-3d tilt-hover"
                   style={{ clipPath: "polygon(32px 0, 100% 0, 100% calc(100% - 32px), calc(100% - 32px) 100%, 0 100%, 0 32px)" }}
                 >
                   {/* Animated Spinning Blue Border Background */}

@@ -99,8 +99,8 @@ export default function App() {
       {/* Cookie Consent Banner */}
       <CookieBanner onConsent={handleConsent} />
 
-      {/* Tawk.to Live Chat — only loads after cookie consent */}
-      <TawkChat chatEnabled={consent?.chat === true} />
+      {/* Tawk.to Live Chat — loads immediately, always visible bottom-right */}
+      <TawkChat chatEnabled={true} />
     </>
   );
 }

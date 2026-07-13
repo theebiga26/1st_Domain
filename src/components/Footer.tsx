@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoUrl from '../assets/logos/logo.webp';
+import logoUrl from '../assets/logos/logo.svg';
 
 export default function Footer() {
   const [email, setEmail] = useState('');

@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import coreCap1 from '../assets/logos/core_cap_1.webp';
-import coreCap2 from '../assets/logos/core_cap_2.webp';
-import coreCap3 from '../assets/logos/core_cap_3.webp';
-import coreCap4 from '../assets/logos/core_cap_4.webp';
-import coreCap5 from '../assets/logos/core_cap_5.webp';
-import coreCap6 from '../assets/logos/core_cap_6.webp';
+import coreCap1 from '../assets/logos/core_cap_1.svg';
+import coreCap2 from '../assets/logos/core_cap_2.svg';
+import coreCap3 from '../assets/logos/core_cap_3.svg';
+import coreCap4 from '../assets/logos/core_cap_4.svg';
+import coreCap5 from '../assets/logos/core_cap_5.svg';
+import coreCap6 from '../assets/logos/core_cap_6.svg';
 
 interface Capability {
   icon: ReactNode;

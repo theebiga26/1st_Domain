@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Cpu, ChevronDown, Menu, X, ArrowRight, ShieldCheck, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logoUrl from '../assets/logos/logo2.webp';
+import logoUrl from '../assets/logos/logo2.svg';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);

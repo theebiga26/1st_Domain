@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { Cpu, ChevronDown, Menu, X, ArrowRight, ShieldCheck, Activity } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logoUrl from '../assets/logos/logo2.svg';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('#hero');
+  const { pathname } = useLocation();
+
+  // Check if currently on a sub page (products or legal pages)
+  const isSubPage = ['/products', '/terms', '/privacy', '/cookies'].includes(pathname);
     useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -100,7 +104,7 @@ export default function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className={`nav-link text-slate-600 hover:text-brand-primary-blue hover:bg-slate-50 rounded-full px-3 py-1.5 transition-all relative ${item.sections?.includes(activeSection) ? 'nav-active font-semibold text-brand-primary-blue after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-gradient-to-r after:from-brand-primary-blue after:to-cyan-400 after:rounded-full' : ''}`}
+                  className={`nav-link text-slate-600 hover:text-brand-primary-blue hover:bg-slate-50 rounded-full px-3 py-1.5 transition-all relative ${!isSubPage && item.sections?.includes(activeSection) ? 'nav-active font-semibold text-brand-primary-blue after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-gradient-to-r after:from-brand-primary-blue after:to-cyan-400 after:rounded-full' : ''}`}
                 >
                   {item.name}
                 </a>
@@ -111,7 +115,11 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               to="/products"
-              className={`text-sm font-semibold px-5 py-2.5 rounded-full flex items-center gap-1.5 transition-all duration-300 bg-[#0F172A] text-white hover:bg-[#0F172A]/90`}
+              className={`text-sm font-semibold px-5 py-2.5 rounded-full flex items-center gap-1.5 transition-all duration-300 ${
+                isSubPage
+                  ? 'bg-[#3b82f6] text-white shadow-lg shadow-blue-500/25'
+                  : 'bg-[#0F172A] text-white hover:bg-[#0F172A]/90'
+              }`}
             >
               Product page
             </Link>
@@ -150,7 +158,7 @@ export default function Header() {
                       key={item.name}
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href, true)}
-                      className={`block py-2 text-[15px] font-medium text-slate-600 hover:text-brand-primary-blue transition-all relative pl-3 ${item.sections?.includes(activeSection) ? 'text-brand-primary-blue font-semibold before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-6 before:bg-gradient-to-b before:from-brand-primary-blue before:to-cyan-400 before:rounded-full' : ''}`}
+                      className={`block py-2 text-[15px] font-medium text-slate-600 hover:text-brand-primary-blue transition-all relative pl-3 ${!isSubPage && item.sections?.includes(activeSection) ? 'text-brand-primary-blue font-semibold before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-6 before:bg-gradient-to-b before:from-brand-primary-blue before:to-cyan-400 before:rounded-full' : ''}`}
                     >
                       {item.name}
                     </a>

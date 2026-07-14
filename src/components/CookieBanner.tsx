@@ -33,13 +33,13 @@ export default function CookieBanner({ onConsent }: { onConsent: (c: CookieConse
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Always show the banner on every page load
     const existing = getCookieConsent();
     if (existing) {
-      // Pass existing consent so chat/analytics load for returning users
+      // User already accepted/declined — pass consent for chat/analytics but don't show banner
       onConsent(existing);
+      return;
     }
-    // Show banner after a short delay so the page renders first
+    // No consent stored yet — show the banner after a short delay
     const t = setTimeout(() => setVisible(true), 800);
     return () => clearTimeout(t);
   }, []);

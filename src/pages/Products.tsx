@@ -151,7 +151,6 @@ export default function Products() {
                 Distributed Model Execution
               </span>
             </div>
-
             <div className="pt-8 flex flex-wrap items-center gap-4">
               <a href="https://app.vertexgrid.one" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center space-x-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-8 py-3.5 rounded font-bold uppercase tracking-wider transition-all duration-300 shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
                 <span>Explore Platform</span>

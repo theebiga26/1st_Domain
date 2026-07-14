@@ -109,12 +109,12 @@ export default function Header() {
 
           {/* Right Action buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="#product"
+            <Link
+              to="/products"
               className={`text-sm font-semibold px-5 py-2.5 rounded-full flex items-center gap-1.5 transition-all duration-300 bg-[#0F172A] text-white hover:bg-[#0F172A]/90`}
             >
               Product page
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -158,13 +158,13 @@ export default function Header() {
               </div>
               
               <div className="pt-4 flex flex-col gap-2.5 border-t border-slate-100 mt-4">
-                <a
-                  href="#product"
+                <Link
+                  to="/products"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full text-center py-3 px-4 bg-[#0F172A] text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm hover:bg-[#0F172A]/90"
                 >
                   Product page
-                </a>
+                </Link>
               </div>
             </div>
           </motion.div>

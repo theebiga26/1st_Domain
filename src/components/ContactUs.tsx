@@ -39,6 +39,24 @@ export default function ContactUs() {
   };
 
   useEffect(() => {
+    if (window.location.hash === '#contact' || window.location.hash === '#contact-us') {
+      const el = document.getElementById('contact');
+      if (el) {
+        setTimeout(() => {
+          const offset = 90;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = el.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          window.scrollTo({
+            top: elementPosition - offset,
+            behavior: 'smooth'
+          });
+        }, 300);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     if (!isTurnstileConfigured || !turnstileContainerRef.current) {
       return;
     }

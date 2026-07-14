@@ -30,6 +30,7 @@ const Footer           = lazy(() => import('./components/Footer'));
 const Terms            = lazy(() => import('./pages/Terms'));
 const PrivacyPolicy    = lazy(() => import('./pages/PrivacyPolicy'));
 const Cookies          = lazy(() => import('./pages/Cookies'));
+const Products         = lazy(() => import('./pages/Products'));
 
 function Home() {
   return (
@@ -96,6 +97,7 @@ export default function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/cookies" element={<Cookies />} />
+          <Route path="/products" element={<Products />} />
         </Routes>
       </Suspense>
 

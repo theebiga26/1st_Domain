@@ -111,7 +111,7 @@ export default function Testimonial() {
               r="3.5"
               fill="#0F172A"
               opacity="0.85"
-              style={{ animation: 'node-pulse 3.5s ease-in-out infinite', animationDelay: delay, transformOrigin: `${cx}px ${cy}px` }}
+              style={{ animation: 'node-pulse 3.5s ease-in-out infinite', animationDelay: delay as string, transformOrigin: `${cx}px ${cy}px` }}
             />
           ))}
         </svg>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logoUrl from '../assets/logos/logo.svg';
 
 // Custom high-visibility SVG Icons
@@ -93,7 +94,9 @@ export default function Products() {
       <header className="sticky top-4 z-50 max-w-7xl mx-auto px-4 md:px-8">
         <div className="bg-[#070c19]/95 backdrop-blur-md border border-slate-800 rounded-lg px-6 py-1 flex items-center justify-between shadow-2xl">
           <div className="flex items-center space-x-4">
-            <img src={logoUrl} alt="VertexGrid" className="w-28 md:w-36 h-auto" />
+            <Link to="/">
+              <img src={logoUrl} alt="VertexGrid" className="w-28 md:w-36 h-auto hover:opacity-80 transition-opacity" />
+            </Link>
             <span className="text-[9px] md:text-[10px] uppercase tracking-widest bg-slate-900 text-cyan-400 px-2.5 py-1 rounded border border-slate-800 font-mono font-bold">
               INCEPTION PROFILE
             </span>

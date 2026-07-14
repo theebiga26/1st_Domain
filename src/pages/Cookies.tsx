@@ -1,10 +1,7 @@
-import { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default function Cookies() {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
-
   return (
     <div className="relative min-h-screen bg-white text-brand-dark-navy antialiased flex flex-col">
       <Header />

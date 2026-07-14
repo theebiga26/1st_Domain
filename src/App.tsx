@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect, lazy, Suspense } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 // Critical above-the-fold components — loaded eagerly
 import Header from './components/Header';
@@ -31,6 +31,15 @@ const Terms            = lazy(() => import('./pages/Terms'));
 const PrivacyPolicy    = lazy(() => import('./pages/PrivacyPolicy'));
 const Cookies          = lazy(() => import('./pages/Cookies'));
 const Products         = lazy(() => import('./pages/Products'));
+
+// Scroll to top on every route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 function Home() {
   return (
@@ -89,6 +98,7 @@ export default function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Preloader />
       
       <Suspense fallback={<div className="min-h-screen bg-[#0F172A]" />}>

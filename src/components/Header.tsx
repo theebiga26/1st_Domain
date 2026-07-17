@@ -121,7 +121,7 @@ export default function Header() {
                   : 'bg-[#0F172A] text-white hover:bg-[#0F172A]/90'
               }`}
             >
-              Product page
+              GridIQ
             </Link>
           </div>
 
@@ -171,7 +171,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full text-center py-3 px-4 bg-[#0F172A] text-white rounded-xl text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm hover:bg-[#0F172A]/90"
                 >
-                  Product page
+                  GridIQ
                 </Link>
               </div>
             </div>

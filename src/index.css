@@ -21,6 +21,10 @@
 }
 
 /* Custom scrollbar and subtle transitions */
+html, body {
+  overflow-x: hidden !important;
+}
+
 html {
   scroll-behavior: smooth;
 }

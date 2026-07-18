@@ -221,10 +221,16 @@ export default function PrivacyPolicy() {
           <p>If you have any questions about this Privacy Policy, You can contact us:</p>
           <ul>
             <li>
+              <p>Address: 822 E. 20th Street Los Angeles CA</p>
+            </li>
+            <li>
               <p>By email: support@vertexgrid.one</p>
             </li>
             <li>
               <p>By phone: +13236723611</p>
+            </li>
+            <li>
+              <p>Company Website: VertexGrid.one</p>
             </li>
           </ul>
         </div>

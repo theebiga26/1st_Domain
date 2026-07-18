@@ -181,16 +181,15 @@ export default function ContactUs() {
         <div className="bg-white rounded-[2rem] rounded-tl-xl rounded-br-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] flex flex-col md:flex-row ml-0 md:ml-16 relative">
           
           {/* Left Overlay Card */}
-          <div className="bg-[#0F172A] text-white p-8 md:p-12 flex flex-col rounded-2xl shadow-2xl md:absolute md:top-6 md:bottom-6 md:-left-16 md:w-[400px] z-10 w-full">
-            <div>
-              <h3 className="text-xl font-semibold text-slate-200 mb-4">Contact Details</h3>
+          <div className="bg-[#0F172A] text-white p-8 md:p-12 flex flex-col justify-center rounded-2xl shadow-2xl md:absolute md:top-6 md:bottom-6 md:-left-16 md:w-[400px] z-10 w-full gap-8">
+            <div className="text-left">
+              <h3 className="text-xl font-semibold text-slate-200 mb-3">Contact Details</h3>
               <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
                 Reach out for sales, support, or to discuss your enterprise GPU strategy with our team.
               </p>
             </div>
             
-            <div className="my-auto pt-10 pb-4">
-              <div className="space-y-8">
+            <div className="flex flex-col space-y-6 w-full text-left">
               <div className="flex items-start gap-4">
                 <MapPin className="w-5 h-5 shrink-0 mt-0.5 text-slate-400" />
                 <p className="text-sm font-medium text-slate-200">822 E. 20th Street<br/>Los Angeles CA 90011</p>
@@ -203,13 +202,10 @@ export default function ContactUs() {
 
               <div className="flex items-center gap-4">
                 <Mail className="w-5 h-5 shrink-0 text-slate-400" />
-                <p className="text-sm font-medium text-slate-200">VertexGrid.one</p>
+                <p className="text-sm font-medium text-slate-200">support@vertexgrid.one</p>
               </div>
             </div>
-
-
           </div>
-        </div>
 
           {/* Right Form Area */}
           <div className="p-8 md:py-16 md:pr-16 md:pl-[380px] w-full flex flex-col justify-center bg-white rounded-2xl min-h-[550px] relative z-0">

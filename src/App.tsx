@@ -11,7 +11,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import CookieBanner, { type CookieConsent } from './components/CookieBanner';
 import TawkChat from './components/TawkChat';
-import Preloader from './components/Preloader';
+
 import './components/BackgroundAnimations.css';
 
 // Below-the-fold components — lazy-loaded for performance
@@ -99,7 +99,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
-      <Preloader />
+
       
       <Suspense fallback={<div className="min-h-screen bg-[#0F172A]" />}>
         <Routes>
